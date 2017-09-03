@@ -1,0 +1,656 @@
+<!--&lt;!&ndash; Start content &ndash;&gt;-->
+<!--<div class="content">-->
+    <!--<div class="container">-->
+
+        <!--&lt;!&ndash; Page-Title &ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-sm-12">-->
+                <!--<h4 class="page-title">Show Event</h4>-->
+                <!--<ol class="breadcrumb">-->
+                    <!--<li><a href="#/">Wain013</a>-->
+                    <!--</li>-->
+                    <!--<li><a href="#/event">Events</a>-->
+                    <!--</li>-->
+                    <!--<li class="active">Show Event</li>-->
+                <!--</ol>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-lg-12  card-box m-b-10">-->
+            <!--<div class="blog-box-one">-->
+                <!--<div class="col-lg-6">-->
+                    <!--<div class="blog-box-one">-->
+                        <!--<div class="cover-wrapper">-->
+                            <!--<img alt="Blog-img" src="assets/images/blogs/5.jpg" class="img-responsive">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="post-info">-->
+                    <!--<div class="date">-->
+                        <!--<span class="day">{{ events.created_at  | amDateFormat:'DD'}}</span>-->
+                        <!--<br>-->
+                        <!--<span class="month">{{ events.created_at  | amDateFormat:'MMM'}}</span>-->
+                    <!--</div>-->
+
+                    <!--<div class="meta-container">-->
+                        <!--<a href="/#/events/show">-->
+                            <!--<h4 class="text-overflow m-t-0">Title: {{ events.title }}</h4>-->
+                        <!--</a>-->
+                    <!--</div>-->
+
+                    <!--<p class="panel-body">-->
+                        <!--{{ events.body }}-->
+                    <!--</p>-->
+
+                    <!--<a href="" ng-click="invokeEditPanel(events)" class="removebtn btn btn-sm waves-effect btn-white">Edit</a>-->
+                    <!--<a href="" ng-click="delete(events.id)" class="removebtn btn btn-sm waves-effect btn-white">Remove</a>-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!-- Start content -->
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Show Event</h4>
+                <ol class="breadcrumb">
+                    <li><a href="#/">Wain013</a>
+                    </li>
+                    <li><a href="#/events/list">Events</a>
+                    </li>
+                    <li class="active">Show Event</li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-lg-12  card-box m-b-10">
+            <div class="blog-box-one">
+                <div class="col-lg-6">
+                    <div class="blog-box-one">
+                        <div class="cover-wrapper">
+                            <img alt="Blog-img" src="assets/images/blogs/5.jpg" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+                <div class="post-info">
+                    <div class="date">
+                        <!--<span class="day">{{ events.created_at  | amDateFormat:'DD'}}</span>-->
+                        <!--<br>-->
+                        <!--<span class="month">{{ events.created_at  | amDateFormat:'MMM'}}</span>-->
+                    </div>
+
+                    <div class="meta-container">
+                        <a href="/#/events/show">
+                            <h4 class="text-overflow m-t-0">Title: {{ event.title_arabic }}</h4>
+                        </a>
+                        <div class="font-13">
+                            <span class="meta">Posted by <a href="#"><b>{{ event.user.email }}</b></a></span>
+                        </div>
+                    </div>
+
+                    <p class="panel-body">
+                        {{ event.body }}
+                    </p>
+
+                    <div class="rating">
+                        <ul class="list-inline">
+                            <li><a class="fa fa-star" href=""></a></li>
+                            <li><a class="fa fa-star" href=""></a></li>
+                            <li><a class="fa fa-star" href=""></a></li>
+                            <li><a class="fa fa-star" href=""></a></li>
+                            <li><a class="fa fa-star-o" href=""></a></li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="row m-t-12">-->
+                        <!--<div class="col-xs-12 icons">-->
+                            <!--<div class="m-t-10 blog-widget-action">-->
+                                <!--<a href="javascript:void(0)" ng-click="likeArticle(articles)">-->
+                                    <!--<i class="mdi md-favorite-outline "></i> <span>{{articles.likes }}</span>-->
+                                <!--</a>-->
+                                <!--<a href="javascript:void(0)" ng-click="fetchComments(articles.id)">-->
+                                    <!--<i class="mdi md-comment"></i> <span>26</span>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <a href="" ng-click="invokeEditPanel(event)" class="removebtn btn btn-sm waves-effect btn-white">Edit</a>
+                    <a href="" ng-click="delete(event.id)" class="removebtn btn btn-sm waves-effect btn-white">Remove</a>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-16">
+            <div class="card-box">
+
+                <!-- GALLERY  -->
+                <div class="row port">
+                    <div class="portfolioContainer">
+                        <h4 class="m-t-0 m-b-20 header-title"><b>Gallery</b></h4>
+                        <div class="col-sm-6 col-lg-3 col-md-4 webdesign illustrator">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/1.jpg" class="image-popup" title="Screenshot-1">
+                                    <img src="assets/images/gallery/1.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 graphicdesign illustrator photography">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/2.jpg" class="image-popup" title="Screenshot-2">
+                                    <img src="assets/images/gallery/2.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 webdesign graphicdesign">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/3.jpg" class="image-popup" title="Screenshot-3">
+                                    <img src="assets/images/gallery/3.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 illustrator photography">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/4.jpg" class="image-popup" title="Screenshot-4">
+                                    <img src="assets/images/gallery/4.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 graphicdesign photography">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/5.jpg" class="image-popup" title="Screenshot-5">
+                                    <img src="assets/images/gallery/5.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 webdesign photography">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/6.jpg" class="image-popup" title="Screenshot-6">
+                                    <img src="assets/images/gallery/6.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 illustrator photography graphicdesign">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/7.jpg" class="image-popup" title="Screenshot-7">
+                                    <img src="assets/images/gallery/7.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 graphicdesign photography webdesign">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/8.jpg" class="image-popup" title="Screenshot-8">
+                                    <img src="assets/images/gallery/8.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 webdesign illustrator">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/9.jpg" class="image-popup" title="Screenshot-9">
+                                    <img src="assets/images/gallery/9.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 photography graphicdesign">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/10.jpg" class="image-popup" title="Screenshot-10">
+                                    <img src="assets/images/gallery/10.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 graphicdesign photography">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/11.jpg" class="image-popup" title="Screenshot-11">
+                                    <img src="assets/images/gallery/11.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3 col-md-4 webdesign graphicdesign illustrator">
+                            <div class="gal-detail thumb">
+                                <a href="assets/images/gallery/12.jpg" class="image-popup" title="Screenshot-12">
+                                    <img src="assets/images/gallery/12.jpg" class="thumb-img" alt="work-thumbnail">
+                                </a>
+                                <h4>Gallary Image</h4>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!-- End GALLERY -->
+
+                <!-- CATEGORIES -->
+                <div class="panel">
+
+                    <div class="panel-body">
+                        <h4 class="m-t-0 m-b-20 header-title"><b>CATEGORIES</b></h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="m-b-30">
+                                    <button id="addToTable" class="btn btn-default waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <table class="table table-striped" id="datatable-editable-1">
+                                <thead>
+                                <tr>
+                                    <th>English</th>
+                                    <th>Arabic</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeX">
+                                    <td>Trident</td>
+                                    <td>Internet
+                                        Explorer 4.0
+                                    </td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeC">
+                                    <td>Trident</td>
+                                    <td>Internet
+                                        Explorer 5.0
+                                    </td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>Gecko</td>
+                                    <td>Mozilla 1.2</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>Gecko</td>
+                                    <td>Mozilla 1.3</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>Gecko</td>
+                                    <td>Mozilla 1.4</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>Gecko</td>
+                                    <td>Mozilla 1.5</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>Gecko</td>
+                                    <td>Mozilla 1.6</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>Gecko</td>
+                                    <td>Mozilla 1.7</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end: page -->
+
+                </div>
+                <!-- end CATEGORIES -->
+
+                <!-- OPTIONS -->
+                <div class="panel">
+
+                    <div class="panel-body">
+                        <h4 class="m-t-0 m-b-20 header-title"><b>OPTIONS</b></h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="m-b-30">
+                                    <button id="addToTable" class="btn btn-default waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <table class="table table-striped" id="datatable-editable-2">
+                                <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeX">
+                                    <td>Trident</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeC">
+                                    <td>Trident</td>
+
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>Gecko</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>Gecko</td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end: page -->
+
+                </div>
+                <!-- end OPTIONS -->
+
+                <!-- ATTENDING -->
+                <div class="panel">
+
+                    <div class="panel-body">
+                        <h4 class="m-t-0 m-b-20 header-title"><b>ATTENDING</b></h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="m-b-30">
+                                    <button id="addToTable-4" class="btn btn-default waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <table class="table table-striped" id="datatable-editable-4">
+                                <thead>
+                                <tr>
+                                    <th>Attending</th>
+                                    <th>Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeX">
+                                    <td><div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle thumb-sm" alt=""></div>
+                                        </td>
+
+                                    <td class="name"><a href="#">Chadengle</a></td>
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeC">
+                                    <td><div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle thumb-sm" alt=""></div>
+                                    </td>
+
+                                    <td class="name"><a href="#">Chadengle</a></td>
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td><div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle thumb-sm" alt=""></div>
+                                    </td>
+
+                                    <td class="name"><a href="#">Chadengle</a></td>
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td><div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle thumb-sm" alt=""></div>
+                                    </td>
+
+                                    <td class="name"><a href="#">Chadengle</a></td>
+
+
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end: page -->
+
+                </div>
+                <!-- end ATTENDING -->
+
+                <!-- COMMENTS -->
+                <h4 class="m-t-0 m-b-20 header-title"><b>Comments</b></h4>
+                <div class="inbox-widget nicescroll mx-box">
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Chadengle</p>
+                            <p class="m-t-10 text-muted p-20">Hey! there I'm available...</p>
+                            <p class="inbox-item-date">13:40 PM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Tomaslau</p>
+                            <p class="m-t-10 text-muted p-20">I've finished it! See you so...</p>
+                            <p class="inbox-item-date">13:34 PM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Stillnotdavid</p>
+                            <p class="m-t-10 text-muted p-20">This theme is awesome!</p>
+                            <p class="inbox-item-date">13:17 PM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Kurafire</p>
+                            <p class="m-t-10 text-muted p-20">Nice to meet you</p>
+                            <p class="inbox-item-date">12:20 PM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Shahedk</p>
+                            <p class="m-t-10 text-muted p-20">Hey! there I'm available...</p>
+                            <p class="inbox-item-date">10:15 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-6.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Adhamdannaway</p>
+                            <p class="m-t-10 text-muted p-20">This theme is awesome!</p>
+                            <p class="inbox-item-date">9:56 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-8.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Arashasghari</p>
+                            <p class="m-t-10 text-muted p-20">Hey! there I'm available...</p>
+                            <p class="inbox-item-date">10:15 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Joshaustin</p>
+                            <p class="m-t-10 text-muted p-20">I've finished it! See you so...</p>
+                            <p class="inbox-item-date">9:56 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Joshaustin</p>
+                            <p class="m-t-10 text-muted p-20">I've finished it! See you so...</p>
+                            <p class="inbox-item-date">9:56 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Joshaustin</p>
+                            <p class="m-t-10 text-muted p-20">I've finished it! See you so...</p>
+                            <p class="inbox-item-date">9:56 AM</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- end COMMENTS -->
+
+                        <textarea required class="form-control"></textarea>
+                        <button class="btn btn-default waves-effect waves-light" ng-click="addComment(event.id)">Add</button>
+
+                <!--<div ng-show="event.showCommentsBox" class="showCommentsBox">-->
+                    <!--<div class="wrapComment">-->
+                        <!--<textarea class="comment" ng-model="comment.commentary"></textarea>-->
+                        <!--<button class="btn btn-default waves-effect waves-light" ng-click="addComment(event.id)">Add</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<!-- jQuery  -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.blockUI.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+
+
+<script src="assets/js/jquery.app.js"></script>
+
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/jquery.core.js"></script>

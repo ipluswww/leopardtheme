@@ -1,0 +1,30 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "webpack --watch"
+  },
+  "author": "Mohammed Mutawa",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-cookie": "^4.1.0",
+    "angular-cookies": "^1.5.6",
+    "angular-filter": "^0.5.11",
+    "angular-isotope": "^0.1.14",
+    "angular-resource": "^1.5.7",
+    "angular-ui-router": "^0.2.18",
+    "angular-ui-tinymce": "0.0.16",
+    "angular-ui-utils": "^0.1.1",
+    "async": "^2.0.1",
+    "ng-photoswipe": "^0.2.0",
+    "oclazyload": "^1.0.9",
+    "webpack": "^1.12.14"
+  }
+}

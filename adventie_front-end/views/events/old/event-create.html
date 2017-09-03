@@ -1,0 +1,116 @@
+<div class="content">
+    <div class="container">
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Create event</h4>
+                <ol class="breadcrumb">
+                    <li><a href="#/">Wain013</a>
+                    </li>
+                    <li><a href="#/events/list">Events</a>
+                    </li>
+                    <li class="active">Create event</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <form method="post" class="form-horizontal group-border-dashed" data-parsley-validate novalidate>
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Language</label>
+                            <div class="col-sm-12">
+                                <select class="selectpicker" data-style="btn-white" ng-options="language.name for language in languages" required ng-model="language" ng-change="saveLanguage()">
+                                    <option value="" style="visibility: hidden ">Select Language </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Arabic Title</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" required id="arabicTitle" placeholder="Arabic Title" name="arabic" ng-model="arabicTitle" />
+                            </div>
+                            <label class="col-sm-2 control-label">English Title</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" required id="englishTitle" placeholder="English Title" name="english" ng-model="englishTitle" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Arabic Description</label>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" required ng-model="arabicDescription" id="arabicDescription" name="arabicDescription" ></textarea>
+                            </div>
+                            <label class="col-sm-2 control-label">English Description</label>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" required ng-model="englishDescription" id="englishDescription" name="englishDescription" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Website</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" required id="website" placeholder="www.example.com" name="website" ng-model="website" />
+                            </div>
+                        </div>
+                        <label class="control-label">Logo</label>
+                        <input type="file" class="filestyle" required id="logo" data-max-option="1" data-buttontext="Select file" data-buttonname="btn-white" name="logo">
+                        <label class="control-label">Gallery Images</label>
+                        <input type="file" class="filestyle" id="photos" multiple data-max-option="10" data-buttontext="Select file" data-buttonname="btn-white" name="photos">
+
+                        <!-- <div class="form-group">
+                             <label class="col-sm-1 control-label">Options</label>
+                             <div class="col-sm-12">
+                                 <input type="text" id="businessOptions" multiple>
+                                 </input>
+                             </div>
+                         </div>-->
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Tags</label>
+                            <div class="col-sm-12">
+                                <input type="text" id="businessTags" multiple>
+                                </input>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Collections</label>
+                            <div class="col-sm-12">
+                                <ul>
+                                    <li ng-repeat="collection in collections">
+                                        <div class="checkbox-primary">
+                                            <input type="checkbox" ng-model="collection.selected" name="col" value="{{collection.name}}" ng-click="saveCheck()" /> {{collection.name}}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--<input data-plugin="switchery" type="checkbox"/>-->
+                        </div>
+
+
+                        <!-- end row -->
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label"></label>
+                            <div class="col-sm-8">
+                                <button id="addBusiness" class="btn btn-primary pull-right m-l-5" ng-click="create()">
+                                    Submit
+                                </button>
+                                <button id="cancel" class="btn btn-primary pull-right" ng-click="cancel()">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- End row -->
+
+        </div>
+
+        <!-- End row -->
+    </div>
+    <!-- container -->
+</div>

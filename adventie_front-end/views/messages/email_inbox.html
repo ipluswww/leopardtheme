@@ -1,0 +1,150 @@
+<style>
+    .split-view .split-list .item .subject {
+        padding-right: 50px;
+    }
+
+    .split-view .split-list .item {
+        height: 85px;
+    }
+
+    .split-view .split-list .item:hover {
+        background: #fafafa;
+    }
+
+    ul.no-padding {
+        margin-bottom: 0px;
+    }
+
+    .message-menu {
+        margin: 6px;
+    }
+</style>
+<div class="split-view">
+    <!-- START EMAILS LIST -->
+    <div class="split-list">
+        <a class="list-refresh" href=""><i class="fa fa-search"></i></a>
+        <div>
+            <!-- START EMAIL LIST SORTED BY DATE -->
+            <div class="list-view-group-container" data-ng-repeat="(key, value) in emails">
+                <div class="list-view-group-header"><span>{{key | moment:'calendar'}}</span></div>
+
+                <ul class="no-padding">
+                    <li data-ng-repeat="item in value | filter:search | filter:category" class="item padding-15" data-email-id="{{item._id}}"
+                        ng-click="view(item)">
+                        <div class="thumbnail-wrapper d32 circular bordered {{item.color}}">
+                            <img width="40" height="40" alt="" ng-src="{{item.user.avatar.filename | image}}">
+                        </div>
+
+                        <div class="inline m-l-15">
+                            <p class="recipients no-margin hint-text small">{{formatTo(item.person.email)}}</p>
+                            <p class="subject no-margin">{{item.message.title}}</p>
+                            <p class="body no-margin">
+                                {{item.message.body}}
+                            </p>
+                        </div>
+                        <div class="datetime">{{item.createdAt | moment:'fromNow'}}</div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- END EMAIL LIST SORTED BY DATE -->
+        </div>
+    </div>
+    <!-- END EMAILS LIST -->
+    <!-- START OPENED EMAIL -->
+    <div data-email="opened" class="split-details">
+        <div class="no-result" ng-hide="emailContent">
+            <h1>No email has been selected</h1>
+        </div>
+        <div class="email-content-wrapper" ng-show="emailContent">
+            <div class="actions-wrapper menuclipper bg-master-lightest">
+                <ul class="actions menuclipper-menu no-margin p-l-20 ">
+                    <li class="visible-sm-inline-block visible-xs-inline-block no-padding">
+                        <a ng-click="showInbox()" class="email-list-toggle no-padding"><i class="fa fa-angle-left"></i>
+                            All Inboxes
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="dropdown pull-right message-menu">
+                    <button class="btn btn-default" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="pg-menu_justify"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ng-click="changeCategory(emailContent,'Inquiries')"><i class="fa fa-building"></i> Move to Inquiries</a>
+                        </li>
+                        <li><a ng-click="changeCategory(emailContent,'Issues')"><i class="fa fa-bug"></i> Move to Issues</a>
+                        </li>
+
+                        <li><a ng-click="changeCategory(emailContent,'Careers')"><i class="pg-bag"></i> Move to Careers</a>
+                        </li>
+                        <hr style="margin-top: 5px;margin-bottom: 5px;">
+                        <li><a ng-click="changeCategory(emailContent,'Archive')"><i class="fa fa-archive"></i> Archive</a>
+                        </li>
+                        <li><a ng-click="delete(emailContent)"><i class="pg-trash"></i> Delete</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <button type="button" ng-show="emailContent.status=='Open'" ng-click="solved(emailContent)" class="btn btn-success pull-right message-menu"><i class="fa fa-check"></i></button>
+                <button type="button" ng-show="emailContent.status=='Closed'" ng-click="reopen(emailContent)" class="btn btn-primary pull-right message-menu"><i class="fa fa-check"></i></button>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="email-content">
+                <div class="email-content-header">
+                    <div class="thumbnail-wrapper d48 circular">
+                        <img width="40" height="40" alt="" src="{{emailContent.user.avatar.filename | image}}">
+                    </div>
+                    <div class="sender inline m-l-15">
+                        <p class="name  m-b-0 m-t-5 bold">{{emailContent.person.name}}
+                        </p>
+
+                        <p class="fromto no-margin"><span class=" small-text">{{emailContent.person.email}}</span> -
+                            {{emailContent.person.phone}} </p>
+                    </div>
+                    <p class="pull-right">{{emailContent.updatedAt | moment:'fromNow'}}</p>
+
+                    <div class="clearfix"></div>
+                    <div class="subject m-t-30  bold">{{emailContent.message.title}}
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="email-content-body m-t-10" ng-bind-html="emailHTML">
+                </div>
+
+                <div data-ng-repeat="reply in emailContent.replies">
+                    <hr>
+                    <div class="thumbnail-wrapper d24 circular ">
+                        <img width="30" height="30" alt="" src="{{reply.user.avatar.filename | image}}" >
+                    </div>
+                    <div class="sender inline m-l-10">
+                        <p class="name no-margin bold">{{reply.user.firstName}} {{reply.user.lastName}}
+                        </p>
+
+                    </div>
+                    <p class="datetime no-margin pull-right">{{reply.updatedAt | moment:'fromNow'}}</p>
+                    <p class="email-content-body m-t-10 m-l-35" ng-bind-html="reply.reply | rawHtml">
+
+                    </p>
+                </div>
+
+
+                <div class="form-group required m-t-40">
+                    <div class="summernote-wrapper">
+                        <!--.note-editor .note-editable-->
+                        <div id="summernote" config="summernote_options" on-focus="focus(evt)"
+                             on-blur="blur(evt)" ng-model="replyMessage"
+                             summernote>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-complete btn-compose m-t-20" ng-click="send(emailContent,replyMessage)">Reply</a>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- END OPENED EMAIL -->
+</div>

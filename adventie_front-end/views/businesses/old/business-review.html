@@ -1,0 +1,177 @@
+<!-- Start content -->
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Show Review</h4>
+                <ol class="breadcrumb">
+                    <li><a href="#/">Wain013</a>
+                    </li>
+                    <li><a href="#/businesses/reviews">Businesses Reviews</a>
+                    </li>
+                    <li class="active">Show Review</li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-lg-12  card-box m-b-10">
+            <div class="blog-box-one">
+                <div class="col-lg-6">
+                    <div class="blog-box-one">
+                        <span class="meta">Reviewed by: <a href="#"><img src="assets/images/users/avatar-1.jpg" class="img-circle thumb-md" alt=""> <p class="inbox-item-author">{{ business.user }}</p></a></span>
+                        <div class="cover-wrapper">
+                            <img alt="Blog-img" src="assets/images/blogs/5.jpg" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+                <div class="post-info">
+                    <div class="date">
+                        <!--<span class="day">{{ business.created_at  | amDateFormat:'DD'}}</span>-->
+                        <br>
+                        <!--<span class="month">{{ business.created_at  | amDateFormat:'MMM'}}</span>-->
+                    </div>
+
+                    <div class="meta-container">
+                            <h4 class="text-overflow m-t-0">Title: {{ business.name_arabic }}</h4>
+                        <div class="font-13">
+                            <span class="meta">Posted by <a href="#"><b>{{ business.user }}</b></a></span>
+                        </div>
+                    </div>
+
+                    <p class="panel-body">
+                        {{ business.description_arabic }}
+                    </p>
+
+                    </div>
+                    <a href="" ng-click="invokeEditPanel(business)" class="removebtn btn btn-sm waves-effect btn-white">Edit</a>
+                    <a href="" ng-click="delete(business.id)" class="removebtn btn btn-sm waves-effect btn-white">Remove</a>
+
+
+
+                </div>
+
+            </div>
+
+
+        <!-- INBOX -->
+        <div class="col-lg-16">
+            <div class="card-box">
+                <h4 class="m-t-0 m-b-20 header-title"><b>Comments</b></h4>
+
+                <div class="inbox-widget nicescroll mx-box">
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Chadengle</p>
+                            <p class="m-t-10 text-muted p-20">Hey! there I'm available...</p>
+                            <p class="inbox-item-date">13:40 PM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Tomaslau</p>
+                            <p class="m-t-10 text-muted p-20">I've finished it! See you so...</p>
+                            <p class="inbox-item-date">13:34 PM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Stillnotdavid</p>
+                            <p class="m-t-10 text-muted p-20">This theme is awesome!</p>
+                            <p class="inbox-item-date">13:17 PM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Kurafire</p>
+                            <p class="m-t-10 text-muted p-20">Nice to meet you</p>
+                            <p class="inbox-item-date">12:20 PM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Shahedk</p>
+                            <p class="m-t-10 text-muted p-20">Hey! there I'm available...</p>
+                            <p class="inbox-item-date">10:15 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-6.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Adhamdannaway</p>
+                            <p class="m-t-10 text-muted p-20">This theme is awesome!</p>
+                            <p class="inbox-item-date">9:56 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-8.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Arashasghari</p>
+                            <p class="m-t-10 text-muted p-20">Hey! there I'm available...</p>
+                            <p class="inbox-item-date">10:15 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Joshaustin</p>
+                            <p class="m-t-10 text-muted p-20">I've finished it! See you so...</p>
+                            <p class="inbox-item-date">9:56 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Joshaustin</p>
+                            <p class="m-t-10 text-muted p-20">I've finished it! See you so...</p>
+                            <p class="inbox-item-date">9:56 AM</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">Joshaustin</p>
+                            <p class="m-t-10 text-muted p-20">I've finished it! See you so...</p>
+                            <p class="inbox-item-date">9:56 AM</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div ng-show="articles.showCommentsBox" class="showCommentsBox">
+
+                    <div class="wrapComment">
+                        <textarea class="comment" ng-model="comment.commentary"></textarea>
+                        <button class="btn btn-default waves-effect waves-light" ng-click="addComment(articles.id)">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div> <!-- end col -->
+    </div>
+
+    </div>
+</div>
+
+<!-- jQuery  -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.blockUI.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+
+
+<script src="assets/js/jquery.app.js"></script>
+
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/jquery.core.js"></script>

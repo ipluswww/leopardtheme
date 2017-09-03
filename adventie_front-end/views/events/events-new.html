@@ -1,0 +1,539 @@
+<style>
+    .pac-container {
+        background-color: #FFF;
+        z-index: 1052;
+        position: fixed;
+        display: inline-block;
+        float: left;
+    }
+
+</style>
+<!-- START JUMBOTRON -->
+<div class="jumbotron" data-pages="parallax">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="inner">
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li><a href="/">Wain</a></li>
+                <li><a ui-sref="nav.eventsList">Event</a></li>
+                <li><a ui-sref="nav.eventsNew" class="active">New Event</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END JUMBOTRON -->
+<!-- START CONTAINER FLUID -->
+<form name="login" role="form" novalidate>
+    <div class="container-fluid container-fixed-lg">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- START PANEL -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">New Event</div>
+                        <div class="tools">
+                            <a class="collapse" href="javascript:;"></a>
+                            <a class="config" data-toggle="modal" href="#grid-config"></a>
+                            <a class="reload" href="javascript:;"></a>
+                            <a class="remove" href="javascript:;"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-default required">
+                                    <label>Host</label>
+                                    <input type="text" id="host" name="host" class="form-control" ng-model="event.host"
+                                           required>
+                                </div>
+                                <label class="error" for="host" ng-show="error.host" ng-bind="error.host">This field is
+                                    required.</label>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default required">
+                                            <label>Entrance Fee</label>
+                                            <input type="text" id="entranceFee" name="entranceFee" class="form-control"
+                                                   ng-model="event.entranceFee" required>
+                                        </div>
+                                        <label class="error" for="entranceFee" ng-show="error.entranceFee"
+                                               ng-bind="error.entranceFee">This field is required.</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default required">
+                                            <label>Phone</label>
+                                            <input type="text" id="phone" name="phone" class="form-control"
+                                                   ng-model="event.phone" required>
+                                        </div>
+                                        <label class="error" for="phone" ng-show="error.phone" ng-bind="error.phone">This
+                                            field is required.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div pg-form-group class="form-group form-group-default input-group">
+                                    <label>Start Date</label>
+                                    <input type="text" class="form-control" placeholder="Pick a date"
+                                           ng-model="date.dateStart" ui-jq="datepicker">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <label class="error" for="entranceFee" ng-show="error.endDate" ng-bind="error.endDate">This field is required.</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <div pg-form-group class="form-group form-group-default input-group">
+                                    <label>End Date</label>
+                                    <input type="text" class="form-control" placeholder="Pick a date"
+                                           ng-model="date.dateEnd" ui-jq="datepicker">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <label class="error" for="entranceFee" ng-show="error.endDate" ng-bind="error.endDate">This field is required.</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <div pg-form-group class="form-group form-group-default input-group bootstrap-timepicker">
+                                    <label>From</label>
+                                    <input id="timepicker" ng-model="date.timeStart" type="text" class="form-control" timepicker>
+                                    <span class="input-group-addon"><i class="pg-clock"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div pg-form-group class="form-group form-group-default input-group bootstrap-timepicker">
+                                    <label>To</label>
+                                    <input id="timepicker" ng-model="date.timeEnd" type="text" class="form-control" timepicker>
+                                    <span class="input-group-addon"><i class="pg-clock"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h5>Repeat
+                                    <span class="semi-bold">Days</span>
+                                </h5>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="radio radio-success">
+                                            <input type="radio" checked="checked" value="yes" name="isRepeated"
+                                                   ng-model="isRepeated" ng-init="isRepeated='yes'" id="yes">
+                                            <label for="yes">All Days</label>
+                                            <input type="radio" value="" name="isRepeated" ng-model="isRepeated"
+                                                   id="no">
+                                            <label for="no">Repeat</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="checkbox check-primary" ng-show="!isRepeated">
+                                            <input type="checkbox" ng-checked="selectedDays.indexOf('SU') > -1" ng-click="toggleDay('SU')" id="checkbox1">
+                                            <label for="checkbox1">Sunday</label>
+
+                                            <input type="checkbox" ng-checked="selectedDays.indexOf('MO') > -1" ng-click="toggleDay('MO')" id="checkbox2">
+                                            <label for="checkbox2">Monday</label>
+
+                                            <input type="checkbox" ng-checked="selectedDays.indexOf('TU') > -1" ng-click="toggleDay('TU')" id="checkbox3">
+                                            <label for="checkbox3">Tuesday</label>
+
+                                            <input type="checkbox" ng-checked="selectedDays.indexOf('WE') > -1" ng-click="toggleDay('WE')" id="checkbox4">
+                                            <label for="checkbox4">Wednesday</label>
+
+                                            <input type="checkbox" ng-checked="selectedDays.indexOf('TH') > -1" ng-click="toggleDay('TH')" id="checkbox5">
+                                            <label for="checkbox5">Thursday</label>
+
+                                            <input type="checkbox" ng-checked="selectedDays.indexOf('FR') > -1" ng-click="toggleDay('FR')" id="checkbox6">
+                                            <label for="checkbox6">Friday</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <ul class="nav nav-tabs nav-tabs-simple" role="tablist">
+                                <li class="active"><a href="#English" data-toggle="tab" pg-tab role="tab">English</a>
+                                </li>
+                                <li><a href="#Arabic" data-toggle="tab" pg-tab role="tab">Arabic</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="English">
+                                    <div class="row column-seperation">
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default required">
+                                                <label>Title (EN)</label>
+                                                <input type="text" id="title.english" name="title.english"
+                                                       class="form-control" ng-model="event.title.english" required>
+                                            </div>
+                                            <label class="error" for="title.english" ng-show="error.title.english"
+                                                   ng-bind="error.title.english">This field is required.</label>
+                                            <div pg-form-group class="form-group required ">
+                                                <div class="summernote-wrapper">
+                                                    <!--.note-editor .note-editable-->
+                                                    <div id="summernote" config="summernote_options"
+                                                         on-focus="focus(evt)" on-blur="blur(evt)"
+                                                         ng-model="event.description.english" summernote>Hello
+                                                        Summernote
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <label class="error" ng-show="error.description.english"
+                                                   ng-bind="error.description.english">This field is required.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane " id="Arabic">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group-default required">
+                                                <label>Title (AR)</label>
+                                                <input type="text" id="title.arabic" name="arabic" class="form-control"
+                                                       ng-model="event.title.arabic" required>
+                                            </div>
+                                            <label class="error" for="title.arabic" ng-show="error.title.arabic"
+                                                   ng-bind="error.title.arabic">This field is required.</label>
+                                            <div pg-form-group class="form-group required ">
+                                                <div class="summernote-wrapper">
+                                                    <!--.note-editor .note-editable-->
+                                                    <div id="summernote" config="summernote_options_arabic"
+                                                         on-focus="focus(evt)" on-blur="blur(evt)"
+                                                         ng-model="event.description.arabic" summernote>Hello Summernote
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <label class="error" ng-show="error.description.arabic"
+                                                   ng-bind="event.description.arabic">This field is required.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-group-default ">
+                                    <label>Logo</label>
+                                    <div class="dropzone cover-dropzone" method="post" enctype="multipart/form-data"
+                                         ng-dropzone dropzone="logo" dropzone-config="dropzoneOneFileConfig">
+                                        <input name="file" type="file"/>
+                                    </div>
+                                </div>
+                                <label class="error" ng-show="error.logo" ng-bind="error.logo">This field is
+                                    required.</label>
+                                <br>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-default ">
+                                    <label>Cover Image</label>
+                                    <div class="dropzone cover-dropzone" method="post" enctype="multipart/form-data"
+                                         ng-dropzone dropzone="cover" dropzone-config="dropzoneOneFileConfig">
+                                        <input name="file" type="file"/>
+                                    </div>
+                                </div>
+                                <label class="error" ng-show="error.cover" ng-bind="error.cover">This field is
+                                    required.</label>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PANEL -->
+                <!-- START PANEL -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title"> Photos</div>
+                        <div class="tools">
+                            <a class="collapse" href="javascript:;"></a>
+                            <a class="config" data-toggle="modal" href="#grid-config"></a>
+                            <a class="reload" href="javascript:;"></a>
+                            <a class="remove" href="javascript:;"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body no-scroll no-padding">
+                        <div class="dropzone" method="post" enctype="multipart/form-data" ng-dropzone
+                             dropzone="dropzone" dropzone-config="dropzoneConfig">
+                            <input name="file" type="file" multiple/>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PANEL -->
+            </div>
+            <div class="col-md-4">
+                <!-- START PANEL -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">Save & Publish</div>
+                        <div class="tools">
+                            <a class="collapse" href="javascript:;"></a>
+                            <a class="config" data-toggle="modal" href="#grid-config"></a>
+                            <a class="reload" href="javascript:;"></a>
+                            <a class="remove" href="javascript:;"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="row hidden">
+
+                            <div class="col-sm-4">
+                                <div class="input-group transparent">
+                                    <input type="text" placeholder="City" class="form-control"
+                                           ngs-model="place.formatted_address" ng-model="location.city">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group transparent">
+                                    <input type="text" placeholder="Latitude" class="form-control"
+                                           ng-model="location.lat">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group transparent">
+
+                                    <input type="text" placeholder="Longitude" class="form-control"
+                                           ng-model="location.lng">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Address" ng-model="location.address"
+                                   disabled>
+                            <span class="input-group-addon primary" ng-click="showMap()">
+
+                         <i class="pg pg-map"></i>
+                     </span>
+                        </div>
+
+
+                    </div>
+                    <!-- START PANEL -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">Save & Publish</div>
+                            <div class="tools">
+                                <a class="collapse" href="javascript:;"></a>
+                                <a class="config" data-toggle="modal" href="#grid-config"></a>
+                                <a class="reload" href="javascript:;"></a>
+                                <a class="remove" href="javascript:;"></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="input-group" style="width: 100%;">
+                                <div pg-form-group class="form-group form-group-default">
+                                    <label>Tags</label>
+                                    <input class="tagsinput custom-tag-input" type="text" ng-model="tags"
+                                           ui-jq="tagsinput"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-heading">
+                            <div class="panel-title">Social Media</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-instagram"></i>
+                           </span>
+                                        <input type="text" placeholder="Username" class="form-control"
+                                               ng-model="instagram">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-twitter"></i>
+                           </span>
+                                        <input type="text" placeholder="Username" class="form-control"
+                                               ng-model="twitter">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-facebook"></i>
+                           </span>
+                                        <input type="text" placeholder="Username" class="form-control"
+                                               ng-model="facebook">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-snapchat-ghost"></i>
+                           </span>
+                                        <input type="text" placeholder="Username" class="form-control"
+                                               ng-model="snapchat">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-google-plus"></i>
+                           </span>
+                                        <input type="text" placeholder="Username" class="form-control"
+                                               ng-model="googlePlus">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-globe"></i>
+                           </span>
+                                        <input type="text" placeholder="Username" class="form-control"
+                                               ng-model="website">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h5>Event
+                                        <span class="semi-bold">Options</span>
+                                    </h5>
+                                    <div class="checkbox check-primary" ng-repeat="(key, item) in eventOptions">
+                                        <input type="checkbox" name="eventOption"
+                                               ng-value="item"
+                                               id="checkboxOption{{key}}"
+                                               ng-checked="selectedOption.indexOf(item) > -1"
+                                               ng-click="toggleOption(item)">
+                                        <label for="checkboxOption{{key}}">{{item.option.english}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5>Event
+                                        <span class="semi-bold">Categories</span>
+                                    </h5>
+                                    <div class="checkbox check-primary" ng-repeat="(key, item) in eventCategories">
+                                        <input type="checkbox" name="eventCategory"
+                                               ng-value="item"
+                                               id="checkboxCategory{{key}}"
+                                               ng-checked="selectedCategory.indexOf(item) > -1"
+                                               ng-click="toggleCategory(item)">
+                                        <label for="checkboxCategory{{key}}">{{item.name.english}}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <br>
+                            <div class="form-group">
+                                <label for="pin" class="col-sm-4 control-label">Pin to Top</label>
+                                <div class="col-sm-8">
+                                    <input type="checkbox" class="js-switch" value="true" id="pin" ng-model="event.pin"
+                                           ui-switch="{color: '#10cfbd'}"/>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">Publish</label>
+                                <div class="col-sm-8">
+                                    <input type="checkbox" class="js-switch" id="status" ng-model="status"
+                                           ui-switch="{color: '#10cfbd'}"/>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-cons" ng-click="create(true)">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PANEL -->
+        </div>
+</form>
+
+<!-- END CONTAINER FLUID -->
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="pg-close fs-14"></i>
+                    </button>
+                    <h5>New Location</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-location-arrow"></i>
+                           </span>
+                                    <input places-auto-complete type="text" types="{{autocomplete.type.type}}"
+                                           on-place-changed="placeChanged()" ng-model="location.address"
+                                           placeholder="Enter a location" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group transparent"> <span class="input-group-addon">
+                     <i class="fa fa-building"></i>
+                     </span>
+                                    <select class="cs-select cs-skin-slide" cs-select
+                                            ng-init="autocomplete.type = autocomplete.types[0]"
+                                            ng-model="autocomplete.type"
+                                            ng-options="x.name for x in autocomplete.types"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <ng-map id="pop-map" zoom="11" center="[26.30277403477249, 50.20979642324221]"></ng-map>
+                        <br>
+
+                        <div class="row">
+
+                            <div class="col-sm-4">
+                                <div class="input-group transparent">
+                                    <input type="text" placeholder="City" class="form-control"
+                                           ngs-model="place.formatted_address" ng-model="location.city">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group transparent">
+                                    <input type="text" placeholder="Latitude" class="form-control" id="location.lat"
+                                           ng-model="location.lat">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group transparent">
+
+                                    <input type="text" placeholder="Longitude " class="form-control" id="location.lng"
+                                           ng-model="location.lng">
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-cons  pull-left inline" ng-click="addLoaction()">
+                        Add
+                    </button>
+                    <button type="button" class="btn btn-default btn-cons no-margin pull-left inline"
+                            data-dismiss="modal">Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>

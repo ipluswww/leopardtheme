@@ -1,0 +1,119 @@
+<!-- Start content -->
+
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Create Article</h4>
+                <ol class="breadcrumb">
+                    <li><a href="#/">Wain013</a>
+                    </li>
+                    <li><a href="#/articles/published">Articles</a>
+                    </li>
+                    <li class="active">Create Article</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <form method="post" class="form-horizontal group-border-dashed" data-parsley-validate novalidate>
+                <div class="col-sm-8">
+                    <div class="card-box">
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Language</label>
+                            <div class="col-sm-12">
+                                <select class="selectpickeri" data-style="btn-white" ng-options="language.name for language in languages" required ng-model="language" ng-change="saveLanguage()">
+                                    <option value="" style="visibility: hidden ">Select Language </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Title</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" required id="titleName" placeholder="Title" name="title" ng-model="title" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Body</label>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" required ng-model="body" id="body" name="body" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="card-box">
+                        <label class="control-label">Cover Image</label>
+                        <input type="file" class="filestyle" required id="cover" data-max-option="1" data-buttontext="Select file" data-buttonname="btn-white" name="cover">
+                        <label class="control-label">Gallery Images</label>
+                        <input type="file" class="filestyle" id="photos" multiple data-max-option="10" data-buttontext="Select file" data-buttonname="btn-white" name="photos">
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Tags</label>
+                            <div class="col-sm-12">
+                                <input type="text" id="articleTags" multiple />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">Collections</label>
+                            <div class="col-sm-12">
+                            <ul>
+                                <li ng-repeat="collection in collections">
+                                    <div class="checkbox-primary">
+                                        <input type="checkbox" ng-model="collection.selected" value="{{collection.name}}" ng-click="saveCheck()" /> {{collection.name}}
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
+                            <!--<input data-plugin="switchery" type="checkbox"/>-->
+                        </div>
+
+
+
+                        <!-- end row -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label"></label>
+                                <div class="col-sm-8">
+                                    <button id="addArticle" class="btn btn-primary pull-right m-l-5" ng-click="create()">
+                                        Submit
+                                    </button>
+                                    <button id="cancel" class="btn btn-primary pull-right" ng-click="cancel()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </form>
+
+        <!-- End row -->
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- container -->
+
+</div>
+
+
+
+
+
+
+<script>
+    jQuery(document).ready(function() {
+
+        
+
+
+        //$(":file").filestyle({input: false});
+    });
+
+</script>
+

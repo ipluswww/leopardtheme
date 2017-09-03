@@ -1,0 +1,188 @@
+/*
+Author: Mohammed Mutawa
+Email : mohammed@indielabs.sa
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Reset
+2.0 Typography
+3.0 Elements
+4.0 Navigation
+5.0 Links
+6.0 container
+7.0 Footer
+8.0 Display
+----------------------------------------------------------------*/
+/*-------- Colors --------*/
+/*$blue:  #00A1F1;
+$red:   #F65314; 
+$yellow : #FFBB00;
+$green: #7CBB00;*/
+/* #3479B3 #6790B3 */
+/* #5ABB6B */
+.page-title {
+  font-size: 24px; }
+
+.text-info {
+  color: #585858; }
+
+.logo {
+  font-family: 'Handlee', cursive;
+  text-transform: capitalize; }
+
+.navbar {
+  border: 1px solid transparent; }
+
+#sidebar-menu > ul > li > a.active {
+  color: #75B3CC !important;
+  border-left: 3px solid #75B3CC; }
+
+#sidebar-menu ul ul li.active a {
+  color: #75B3CC; }
+
+.label-pink {
+  background-color: #FBBC05; }
+
+.text-custom {
+  color: #34A853; }
+
+.text-pink {
+  color: #FBBC05; }
+
+/*--------------------------------------------------------------
+1.0 Reset
+--------------------------------------------------------------*/
+.label-blue {
+  background-color: #4285F4; }
+
+.label-red {
+  background-color: #EA4335; }
+
+.label-yellow {
+  background-color: #FBBC05; }
+
+.label-green {
+  background-color: #34A853; }
+
+.label-dark {
+  background-color: #000; }
+
+.hide {
+  display: none; }
+
+.settings-page-content {
+  margin: 0 300px; }
+
+.wizard > .content > .body label {
+  display: inline-block;
+  margin-bottom: 0.5em;
+  margin-top: 0; }
+
+#sidebar-menu .has_sub .active + ul {
+  display: block; }
+
+.text-dark {
+  color: #4c5667 !important; }
+
+/*--------------------------------------------------------------
+2.0 Typography
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+4.0 Navigation
+--------------------------------------------------------------*/
+.logo {
+  font-family: 'Handlee', cursive;
+  text-transform: capitalize; }
+  .logo i {
+    color: #585858; }
+
+#wrapper.enlarged .left.side-menu #sidebar-menu a.subdrop {
+  color: #fff !important; }
+
+#wrapper.enlarged .left.side-menu #sidebar-menu ul > li:hover > a {
+  color: #fff;
+  border-color: #fff; }
+
+
+/*--------------------------------------------------------------
+5.0 Links
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+6.0 container
+--------------------------------------------------------------*/
+.register-view .logo,
+.login-view .logo {
+  font-size: 3em; }
+.register-view .panel-heading,
+.login-view .panel-heading {
+  margin-bottom: -35px; }
+.register-view .btn-pink,
+.login-view .btn-pink {
+  background-color: #36404a !important;
+  border: 1px solid #36404a !important; }
+
+.create-agency-view .wrapper-page {
+  width: 1490px; }
+.create-agency-view .wrapper-page .card-box {
+  border: none; }
+.create-agency-view .wrapper-page {
+  margin: 60px auto; }
+.create-agency-view .terms-conditions {
+  background: #fff;
+  overflow-y: scroll;
+  max-height: 380px;
+  width: 1320px;
+  margin: -20px 0 20px 0; }
+.create-agency-view .btn-default, .create-agency-view .bg-custom, .create-agency-view .btn-default:hover {
+  background-color: #484848 !important;
+  border: 1px solid #484848 !important; }
+
+.setting-view .content-page {
+  margin: auto;
+  overflow: hidden;
+  max-width: 1390px;
+  margin-top: 25px; }
+.setting-view .page-header {
+  background-color: #36404a;
+  color: #fff;
+  margin: -20px;
+  padding: 20px 20px;
+  margin-top: -20px !important;
+  border-radius: 2px 3px 0px 0px; }
+
+.available-view i.info-ico {
+  float: left;
+  background: transparent !important;
+  font-size: 18px;
+  line-height: 0px;
+  padding: 9px 5px;
+  position: relative;
+  top: 0;
+  left: -4px;
+  right: 10px; }
+.available-view .info-bluck {
+  margin: 5px 0; }
+.available-view .widget-panel {
+  padding: 20px 20px; }
+
+.building-nav .breadcrumb > li + li.none:before {
+  display: none; }
+.building-nav .table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd; }
+
+/*--------------------------------------------------------------
+7.0 Footer
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+8.0 Display
+--------------------------------------------------------------*/
+/* Extra small devices (phones, less than 768px) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+
+/*# sourceMappingURL=main.css.map */

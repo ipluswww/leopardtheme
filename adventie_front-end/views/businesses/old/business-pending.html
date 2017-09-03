@@ -1,0 +1,152 @@
+<!-- Start content -->
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Pending Businesses</h4>
+                <ol class="breadcrumb">
+                    <li><a href="#">Wain013</a>
+                    </li>
+                    <li><a href="#">Businesses</a>
+                    </li>
+                    <li class="active">Pending Businesses</li>
+                </ol>
+            </div>
+        </div>
+        <link href="assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+        <div class="row">
+            <div class="col-md-3">
+                <form role="form">
+                    <div class="form-group contact-search m-b-30">
+                        <input type="text" id="search" class="form-control" placeholder="Search..." ng-model="search">
+                        <button type="submit" class="btn btn-white"><i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <!-- form-group -->
+                </form>
+            </div>
+
+            <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="yyyy-mm-dd" ng-model="searchDate" id="datepicker-autoclose">
+            </div>
+            <div class="col-md-6">
+                <a href="#/Businesses/new" ng-click="create()" class="btn btn-default btn-md waves-effect waves-light m-b-30 pull-right" data-animation="fadein" data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a"><i class="md md-add"></i> Add New</a>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="col-lg-12  card-box m-b-10" ng-repeat="businesses in businesses | filter:search |filter:searchDate | filter:{language: myLanguageV}| orderBy:timestamp:!sortReverse">
+                    <div class="table-box opport-box" data-id='{{ businesses.id }}' ng-click="select(businesses)">
+                        <div class="table-detail">
+                            <img src="assets/images/brand/coco-cola.jpg" {{ businesses.cover_image }} alt="img" class="img-circle thumb-lg m-r-15" />
+                        </div>
+
+                        <div class="table-detail">
+                            <div class="member-info">
+                                <h4 class="m-t-0"><b>Business Arabic Title: </b><span class="text-muted" ng-bind="businesses.name_arabic"></span> |
+                                    <b>Business English Title:</b> <span class="text-muted" ng-bind="businesses.name_english"></span> </h4>
+                                <p class="text-dark m-b-5">Arabic Description: <b ng-bind="businesses.description_arabic"></b> </p>
+                                <p class="text-dark m-b-5">English Description: <b ng-bind="businesses.description_english"></b> </p>
+                                <p class="text-dark m-b-5"><b>created at: </b>  <span class="text-muted" ng-bind="businesses.created_at | date:'yyyy-MM-dd h:mma'"></span> | <b>updated at: </b>  <span class="text-muted" ng-bind="businesses.updated_at | date:'yyyy-MM-dd h:mma'"></span>
+                                    | <b> Website </b>  <span class="text-muted" ng-bind="businesses.website_url"></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="table-detail lable-detail">
+                            <span class="label label-info" ng-repeat="tag in businesses.tags | orderBy:title:!sortReverse">{{ tag }}</span>
+                        </div>
+
+                        <div class="table-detail">
+                            <a href="#" class="btn btn-sm btn-danger waves-effect waves-light" ng-click="decline(businesses)">Decline</a>
+                            <a href="#" class="btn btn-sm btn-success waves-effect waves-light" ng-click="approve(businesses)">Approve</a>
+                            <a href="#" class="btn btn-sm btn-primary waves-effect waves-light" ng-click="publish(businesses)">Publish</a>
+                        </div>
+
+                        <div class="table-detail table-actions-bar">
+                            <a href="" class="table-action-btn" ng-click="invokeEditPanel(businesses)"><i class="md md-edit"></i></a>
+                            <a href="" ng-click="delete(businesses.id)" class="table-action-btn" ng-click="delete(businesses, $index)"><i class="md md-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end col -->
+        </div>
+
+    </div>
+    <!-- container -->
+
+</div>
+<!-- content -->
+
+<!-- Modal -->
+<div id="custom-modal" class="modal-demo">
+    <button type="button" class="close" onclick="Custombox.close();">
+        <span>&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="custom-modal-title">Add New</h4>
+    <div class="custom-modal-text text-left">
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name">
+            </div>
+
+            <div class="form-group">
+                <label for="position">Category</label>
+                <input type="text" class="form-control" id="position" placeholder="Enter category">
+            </div>
+
+            <div class="form-group">
+                <label for="position1">Contact number</label>
+                <input type="text" class="form-control" id="position1" placeholder="Enter number">
+            </div>
+
+
+            <button type="submit" class="btn btn-default waves-effect waves-light">Save</button>
+            <button type="button" class="btn btn-danger waves-effect waves-light m-l-10">Cancel</button>
+        </form>
+    </div>
+</div>
+<!-- W edit window -->
+<div class="editOverlay" ng-show="showEditPanel"></div>
+<div class="editPanel" ng-show="showEditPanel">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Edit Business</h4>
+        </div>
+    </div>
+    <div class="editInputBox">
+        <label>Title</label>
+        <input type="text" ng-model="articleToEdit.newTitle">
+    </div>
+    <div class="editInputBox">
+        <label>Text</label>
+        <textarea class="textarea" ng-model="articleToEdit.newBody"></textarea>
+    </div>
+    <div>
+        <button id="editEvent" class="btn btn-primary waves-effect waves-light" ng-click="editArticle()">Edit</button>
+        <button class="btn btn-primary waves-effect waves-light" ng-click="cancel()">Cancel</button>
+    </div>
+</div>
+<script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+    jQuery(document).ready(function() {
+
+        // Date Picker
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            format: 'yyyy-mm-dd'
+        });
+
+    });
+</script>

@@ -1,0 +1,62 @@
+<style>
+    .secondary-sidebar .form-control:focus{
+        background-color: #202531;
+        color:#ffffff;
+    }
+    .secondary-sidebar .form-control{
+        background-color: #252b3a;
+        color:#ffffff;
+    }
+</style>
+<!-- START EMAIL -->
+
+<div>
+    <!-- START EMAIL SIDEBAR MENU-->
+    <nav class="secondary-sidebar padding-30">
+        <a ui-sref="app.messages.compose" class="btn btn-complete btn-block btn-compose m-b-30 hidden">Compose</a>
+        <p class="menu-title">SEARCH</p>
+        <input type="text" ng-model="search" class="form-control" required="">
+
+        <p class="menu-title">CATEGORY</p>
+
+        <ul class="main-menu filter-links">
+            <li ng-class="{'active': active_link == 'inbox' }" ng-init="active_link = 'inbox'">
+                <a href="" ng-click="category = {status:'Open'}; active_link = 'inbox';">
+                    <span class="title"><i class="pg-inbox"></i> Inbox</span>
+                    <span class="badge pull-right"></span>
+                </a>
+            </li>
+            <li ng-class="{'active': active_link == 'All' }">
+                <a href="" ng-click="category = {}; active_link = 'All';">
+                    <span class="title"><i class="pg-folder"></i> All issues</span>
+                </a>
+            </li>
+            <li ng-class="{'active': active_link == 'Inquiries' }">
+                <a href="" ng-click="category = {category:'Inquiries',status:'Open'}; active_link = 'Inquiries';">
+                    <span class="title"><i class="fa fa-building"></i> Business Inquiries</span>
+                    <span class="badge pull-right"></span>
+                </a>
+            </li>
+            <li ng-class="{'active': active_link == 'Issues' }">
+                <a href="" ng-click="category = {category:'Issues',status:'Open'}; active_link = 'Issues';">
+                    <span class="title"><i class="fa fa-bug"></i> Issues</span>
+                    <span class="badge pull-right"></span>
+                </a>
+            </li>
+            <li ng-class="{'active': active_link == 'Careers' }">
+                <a href="" ng-click="category = {category:'Careers',status:'Open'}; active_link = 'Careers';">
+                    <span class="title"><i class="pg-bag"></i> Careers</span>
+                    <span class="badge pull-right"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- END EMAL SIDEBAR MENU -->
+</div>
+<div class="inner-content full-height" ng-controller="EmailListCtrl" ui-view></div>
+<!-- START COMPOSE BUTTON FOR TABS -->
+<div class="compose-wrapper visible-xs">
+    <a class="compose-email text-info pull-right m-r-10 m-t-10" ui-sref="app.messages.compose"><i class="fa fa-pencil-square-o"></i></a>
+</div>
+<!-- END COMPOSE BUTTON -->
+<!-- END EMAIL -->

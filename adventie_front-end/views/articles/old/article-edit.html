@@ -1,0 +1,145 @@
+<!-- Start content -->
+
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Edit Article</h4>
+                <ol class="breadcrumb">
+                    <li><a href="#/">Wain013</a>
+                    </li>
+                    <li><a href="#/articles/published">Articles</a>
+                    </li>
+                    <li class="active">Edit Article</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <form method="post" class="form-horizontal group-border-dashed">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Language</label>
+                                <div class="col-sm-12">
+                                    <select ng-options="language.name for language in languages" ng-model="article.title" ng-change="saveLanguage()"></select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Title</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" value="{{article.NewTitle}}" required name="title" id="newTitle"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Body</label>
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" required ng-model="body" id="body" name="body" ></textarea>
+                                </div>
+                            </div>
+                            <label class="control-label">Cover Image</label>
+                            <input type="file" class="filestyle" id="cover" data-max-option="1" data-buttontext="Select file" data-buttonname="btn-white" name="cover">
+                            <label class="control-label">Gallery Images</label>
+                            <input type="file" class="filestyle" id="photos" multiple data-max-option="10" data-buttontext="Select file" data-buttonname="btn-white" name="photos">
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Tags</label>
+                                <div class="col-sm-12">
+                                    <input type="text" id="articleTags" multiple data-role="tagsinput">
+                                    </input>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Collections</label>
+                                <div class="col-sm-12">
+                                    <ul>
+                                        <li ng-repeat="collection in collections">
+                                            <div class="switchery-demo">
+                                                <input type="checkbox" ng-model="collection.selected" value="{{collection.name}}" ng-click="saveCheck()" /> {{collection.name}}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <!-- end row -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label"></label>
+                                <div class="col-sm-8">
+                                    <button id="addArticle" class="btn btn-primary pull-right m-l-5" ng-click="edit()">
+                                        Edit
+                                    </button>
+                                    <button id="cancel" class="btn btn-primary pull-right" ng-click="cancel()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- End row -->
+
+
+    <!-- end row -->
+</div>
+<!-- container -->
+
+</div>
+<script>
+    var resizefunc = [];
+</script>
+
+<!-- jQuery  -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.blockUI.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+
+<script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<script src="assets/plugins/switchery/dist/switchery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
+<script src="assets/plugins/select2/select2.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-filestyle/src/bootstrap-filestyle.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="assets/plugins/autocomplete/jquery.mockjax.js"></script>
+<script type="text/javascript" src="assets/plugins/autocomplete/jquery.autocomplete.min.js"></script>
+<script type="text/javascript" src="assets/plugins/autocomplete/countries.js"></script>
+<script type="text/javascript" src="assets/pages/autocomplete.js"></script>
+
+<script src="assets/js/jquery.core.js"></script>
+<script src="assets/js/jquery.app.js"></script>
+
+
+
+<script>
+    jQuery(document).ready(function() {
+
+        $('.selectpicker').selectpicker();
+        $(":file").filestyle({input: false});
+    });
+
+</script>
+

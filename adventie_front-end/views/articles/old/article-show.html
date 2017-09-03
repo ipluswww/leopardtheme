@@ -1,0 +1,226 @@
+
+
+<!-- Start content -->
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Show Article</h4>
+                <ol class="breadcrumb">
+                    <li><a href="#/">Wain013</a>
+                    </li>
+                    <li><a href="#/articles/published">Articles</a>
+                    </li>
+                    <li class="active">Show Article</li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-lg-12  card-box m-b-10">
+            <div class="blog-box-one">
+                <div class="col-lg-6">
+                    <div class="blog-box-one">
+                        <div class="cover-wrapper">
+                            <div style=" height: 400px; background: url(uploads/{{article.cover.filename}}) no-repeat center; background-size: contain; background-color: whitesmoke">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-info">
+                    <div class="date">
+                        <span class="day">{{ article.createdAt  | date:'MMM dd'}}</span>
+                        <br>
+                        <!--<span class="month">{{ article.created_at  | amDateFormat:'MMM'}}</span>-->
+                    </div>
+
+                    <div class="meta-container">
+                        <a href="">
+                            <h4 class="text-overflow m-t-0">Title: {{ article.title }}</h4>
+                        </a>
+                        <div class="font-13">
+                            <span class="meta">Posted by: <a href=""> <img src="uploads/{{user.avatar.filename}}" class="img-circle thumb-md" style="background-color: whitesmoke" alt=""> {{ user.username }}</a></span>
+                        </div>
+                        <p class="panel-body">
+                            {{ article.body }}
+                        </p>
+                        <div class="row m-t-12 m-b-5">
+                            <div class="col-xs-12 icons">
+                                <div class="m-t-10 blog-widget-action">
+                                    <a href="" ng-click="likeArticle(article._id)">
+                                        <i class="mdi md-favorite-outline "></i> <span>{{article.likes.length }}</span>
+                                    </a>
+                                    <a href="">
+                                        <i class="mdi md-comment"></i> <span>{{article.comments.length }}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-detail lable-detail">
+                            <a href="#"> <span class="label label-info m-l-5" ng-repeat="tag in article.tags | orderBy:title:!sortReverse"> {{ tag }} </span></a>
+                        </div>
+                        <div class="row m-t-12 m-t-5">
+                        <a href="" ng-click="invokeEditPanel(article)" class="removebtn btn btn-sm waves-effect btn-white">Edit</a>
+                        <a href="" ng-click="delete(article._id)" class="removebtn btn btn-sm waves-effect btn-white">Remove</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-lg-16">
+            <div class="card-box">
+
+        <!-- GALLERY  -->
+        <div class="row port">
+            <div class="portfolioContainer">
+                <h4 class="m-t-0 m-b-20 header-title"><b>Gallery</b></h4>
+                <div class="col-sm-6 col-lg-3 col-md-4 webdesign illustrator" ng-repeat="img in article.photos" ng-repeat="name in reName(article.photos)">
+                    <div class="gal-detail thumb">
+                        <a href="uploads/{{img.filename}}" class="image-popup" title="Screenshot-1">
+                            <img src="uploads/{{img.filename}}" class="thumb-img" alt="work-thumbnail">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End GALLERY -->
+
+                <!-- COMMENTS -->
+                <h4 class="m-t-0 m-b-20 header-title"><b>Comments</b></h4>
+                <div class="inbox-widget nicescroll mx-box">
+                    <a href="" ng-repeat="comment in article.comments ">
+                        <div class="inbox-item">
+                            <div class="inbox-item-img"><img src="uploads/{{comment.user.avatar.filename}}" class="img-circle" alt=""></div>
+                            <p class="inbox-item-author">{{comment.user.username}}</p>
+                            <p class="m-t-10 text-muted p-20">{{comment.comment}}</p>
+                            <p href="" class="fa fa-trash-o" ng-click="invokeSurePanel()"></p>
+                            <p class="inbox-item-date">13:40 PM</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- end COMMENTS -->
+
+                <textarea required class="form-control" ng-model="comment"></textarea>
+                <button class="btn btn-default waves-effect waves-light" ng-click="addComment(article._id)">Add</button>
+
+                <!--<div ng-show="articles.showCommentsBox" class="showCommentsBox">-->
+                    <!--<div class="wrapComment">-->
+                        <!--<textarea class="comment" ng-model="comment.commentary"></textarea>-->
+                        <!--<button class="btn btn-default waves-effect waves-light" ng-click="addComment(articles.id)">Add</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+
+        </div> <!-- end col -->
+
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->
+
+    </div>
+</div>
+
+
+<div class="editOverlay" ng-show="showEditPanel"></div>
+<div class="editPanel" ng-show="showEditPanel">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Edit article</h4>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label>Language    </label>
+            <select ng-options="language.name for language in languages" ng-model="articleToEdit.newLanguage"></select>
+        </div>
+        <div class="editInputBox">
+            <label>Title</label>
+            <input type="text" ng-model="articleToEdit.newTitle">
+        </div>
+        <div class="editInputBox">
+            <label>Text</label>
+            <textarea class="textarea" ng-model="articleToEdit.newBody"></textarea>
+        </div>
+        <!--<div class="editInputBox">
+            <label class="control-label">Cover Image</label>
+            <input type="file" class="filestyle" id="cover" data-max-option="1" data-buttontext="Select file" data-buttonname="btn-white" name="cover">
+        </div>-->
+        <div>
+            <button id="editEvent" class="btn btn-primary waves-effect waves-light" ng-click="editArticle()">Edit</button>
+            <button class="btn btn-primary waves-effect waves-light" ng-click="cancel()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL -->
+
+<div id="dialog" class="editPanel" ng-show="showSurePanel">
+    <section class="panel panel-info panel-color">
+        <header class="panel-heading">
+            <h2 class="panel-title">Are you sure?</h2>
+        </header>
+        <div class="panel-body">
+            <div class="modal-wrapper">
+                <div class="modal-text">
+                    <p>Are you sure that you want to delete this?</p>
+                </div>
+            </div>
+
+            <div class="row m-t-20">
+                <div class="col-md-12 text-right">
+                    <button id="dialogConfirm" class="btn btn-primary waves-effect waves-light">Confirm</button>
+                    <button id="dialogCancel" class="btn btn-default waves-effect" ng-click="cancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<!-- end Modal -->
+
+<!-- jQuery  -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.blockUI.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+
+
+<script src="assets/js/jquery.app.js"></script>
+
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/jquery.core.js"></script>
+
+
+
+
+<script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<script src="assets/plugins/switchery/dist/switchery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
+<script src="assets/plugins/select2/select2.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-filestyle/src/bootstrap-filestyle.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="assets/plugins/autocomplete/jquery.mockjax.js"></script>
+<script type="text/javascript" src="assets/plugins/autocomplete/jquery.autocomplete.min.js"></script>
+<script type="text/javascript" src="assets/plugins/autocomplete/countries.js"></script>
+<script type="text/javascript" src="assets/pages/autocomplete.js"></script>
+
+
+<script>
+    var resizefunc = [];
+</script>

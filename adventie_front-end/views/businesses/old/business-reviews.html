@@ -1,0 +1,151 @@
+<div class="content">
+    <div class="col-lg-12">
+        <h1>Businesses Reviews</h1>
+        <hr>
+        <div class="container" id="table">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4 class="page-title">Businesses Reviews</h4>
+                            <ol class="breadcrumb">
+                                <li><a href="#/">Wain013</a>
+                                </li>
+                                <li><a href="#/businesses/reviews">Businesses Reviews</a>
+                                </li>
+                                <li class="active">Reviews</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" ng-repeat="business in businesses | orderBy:title:!sortReverse | filter:search">
+                        <div class="blog-box-one" ng-init = "reviewUrl = '/#/businesses/reviews/' + x.id">
+                            <div class="cover-wrapper">
+                                <a href="{{reviewUrl}}">
+                                    <img alt="Blog-img" src="assets/images/blogs/5.jpg" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="post-info">
+                                <div class="font-13">
+                                    <span class="meta">Reviewed by <a href="#"><b>{{ business.user }}</b></a></span>
+                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle thumb-md" alt=""></div>
+                                </div>
+                                <div class="date">
+                                    <!--<span class="day">{{ business.created_at  | amDateFormat:'DD'}}</span>-->
+                                    <br>
+                                    <!--<span class="month">{{ business.created_at  | amDateFormat:'MMM'}}</span>-->
+                                </div>
+
+                                <h4 class="inline">Business Name: {{business.name_english}}</h4>
+                                <div class="meta-container">
+                                    <a href="{{reviewUrl}}">
+                                        <h5 class="text-overflow m-t-0">{{ business.description_english }}</h5>
+                                    </a>
+
+                                </div>
+
+                                <div class="eventBody">{{business.description_english}}</div>
+
+                                <div class="col-xs-12">
+                                    <div class="m-t-10 blog-widget-action">
+                                        <a ng-click="likeBusiness(business)">
+                                            <i class="mdi md-favorite-outline "></i> <span>{{business.likes }}</span>
+                                        </a>
+                                        <a href="javascript:void(0)">
+                                            <i class="mdi md-comment"></i> <span>26</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <a href="{{reviewUrl}}" class="btn btn-sm waves-effect btn-white">Read More</a>
+                                    <a href="" ng-click="invokeBusinessEditPanel(business)" class="removebtn btn btn-sm waves-effect btn-white">Edit</a>
+                                    <a href="" ng-click="deleteBusiness(business.id)" class="removebtn btn btn-sm waves-effect btn-white">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="custom-modal" class="modal-demo">
+    <button type="button" class="close" onclick="Custombox.close();">
+        <span>&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="custom-modal-title">Add New</h4>
+    <div class="custom-modal-text text-left">
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name">
+            </div>
+
+            <div class="form-group">
+                <label for="position">Category</label>
+                <input type="text" class="form-control" id="position" placeholder="Enter category">
+            </div>
+
+            <div class="form-group">
+                <label for="position1">Contact number</label>
+                <input type="text" class="form-control" id="position1" placeholder="Enter number">
+            </div>
+            <button type="submit" class="btn btn-default waves-effect waves-light">Save</button>
+            <button type="button" class="btn btn-danger waves-effect waves-light m-l-10">Cancel</button>
+        </form>
+    </div>
+</div>
+<div class="editOverlay" ng-init="showEditPanel = false" style="display: none"></div>
+<div class="editPanel" ng-init="showEditPanel = false" style="display: none">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Edit Business</h4>
+        </div>
+    </div>
+
+    <div class="editInputBox">
+        <label>Title (English)</label>
+        <input type="text" ng-model="businessToEdit.newTitle">
+    </div>
+    <div class="editInputBox">
+        <label>Title(Arabic)</label>
+        <input type="text" ng-model="businessToEdit.newTitleArabic">
+    </div>
+    <div class="editInputBox">
+        <label>Description (english)</label>
+        <textarea class="textarea" ng-model="businessToEdit.newBody"></textarea>
+    </div>
+    <div class="editInputBox">
+        <label>Description (arabic)</label>
+        <textarea class="textarea" ng-model="businessToEdit.newBodyArabic"></textarea>
+    </div>
+    <div class="editInputBox">
+        <label>Logo</label>
+        <input type="text" ng-model="businessToEdit.newLogo">
+    </div>
+    <div class="editInputBox">
+        <label>Website</label>
+        <input type="text" ng-model="businessToEdit.newWeb">
+    </div>
+    <div>
+        <button id="editBusiness" class="btn btn-primary waves-effect waves-light" ng-click="editBusiness()">Edit</button>
+        <button class="btn btn-primary waves-effect waves-light" ng-click="cancel()">Cancel</button>
+    </div>
+</div>
+<script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+    jQuery(document).ready(function () {
+
+
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>

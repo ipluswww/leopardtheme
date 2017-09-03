@@ -1,0 +1,42 @@
+<!-- START COMPOSE EMAIL -->
+<div class="email-composer container-fluid m-l-0" email-composer>
+    <div class="row">
+        <div class="col-sm-12 no-padding">
+            <div class="wysiwyg5-wrapper email-toolbar-wrapper">
+            </div>
+            <form id="form-project" role="form" autocomplete="off">
+                <div class="form-group-attached">
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div pg-form-group class="form-group form-group-default">
+                                <label>TO:</label>
+                                <input name="to" data-role="tagsinput" ng-model="newEmail.to" class="form-control tagsinput" type="text" value="John Smith" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div pg-form-group class="form-group form-group-default">
+                                <label>CC:</label>
+                                <input type="text" class="form-control" ng-model="newEmail.cc" name="cc" placeholder="Add Carbon Copy">
+                            </div>
+                        </div>
+                    </div>
+                    <div pg-form-group class="form-group form-group-default">
+                        <label>Subject</label>
+                        <input type="text" class="form-control" ng-model="newEmail.subject" name="subject">
+                    </div>
+                </div>
+            </form>
+            <div class="wysiwyg5-wrapper email-body-wrapper">
+                <textarea class="wysiwyg email-body" style="height:350px"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row p-b-20">
+        <div class="col-sm-12">
+            <button class="btn btn-white btn-cons">Cancel</button>
+            <button class="btn btn-complete btn-cons m-l-10" ng-click="sendEmail()">Send</button>
+
+        </div>
+    </div>
+</div>
+<!-- END COMPOSE EMAIL -->

@@ -1,0 +1,622 @@
+<style>
+   .pac-container {
+      background-color: #FFF;
+      z-index: 1052;
+      position: fixed;
+      display: inline-block;
+      float: left;
+   }
+
+</style>
+<!-- START JUMBOTRON -->
+<div class="jumbotron" data-pages="parallax">
+   <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+      <div class="inner">
+         <!-- START BREADCRUMB -->
+         <ul class="breadcrumb">
+            <li> <a href="/">Wain</a> </li>
+            <li> <a ui-sref="nav.eventsList">Businesses</a> </li>
+            <li><a ui-sref="nav.eventsNew" class="active">New Business</a> </li>
+         </ul>
+      </div>
+   </div>
+</div>
+<!-- END JUMBOTRON -->
+<!-- START CONTAINER FLUID -->
+<form name="login" role="form" novalidate>
+   <div class="container-fluid container-fixed-lg">
+      <div class="row">
+         <div class="col-md-8">
+            <!-- START PANEL -->
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <div class="panel-title">New Business </div>
+                  <div class="tools">
+                     <a class="collapse" href="javascript:;"></a>
+                     <a class="config" data-toggle="modal" href="#grid-config"></a>
+                     <a class="reload" href="javascript:;"></a>
+                     <a class="remove" href="javascript:;"></a>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <div class="panel">
+                     <ul class="nav nav-tabs nav-tabs-simple" role="tablist">
+                        <li class="active"><a href="#tab2hellowWorld" data-toggle="tab" pg-tab role="tab">English</a>
+                        </li>
+                        <li><a href="#tab2FollowUs" data-toggle="tab" pg-tab role="tab">Arabic</a>
+                        </li>
+                     </ul>
+                     <div class="tab-content">
+                        <div class="tab-pane active" id="tab2hellowWorld">
+                           <div class="row column-seperation">
+                              <div class="col-md-12">
+                                 <div class="form-group form-group-default required">
+                                    <label>Name (EN)</label>
+                                    <input type="text" name="englishTitle" class="form-control" ng-model="business.name.english" required>
+                                 </div>
+                                 <label class="error" for="englishTitle" ng-show="error.englishName" ng-bind="error.englishName">This field is required.</label>
+                                 <div pg-form-group class="form-group required ">
+                                    <div class="summernote-wrapper">
+                                       <!--.note-editor .note-editable-->
+                                       <div id="summernote" config="summernote_options" on-focus="focus(evt)" on-blur="blur(evt)" ng-model="business.description.english" summernote>Hello Summernote</div>
+                                    </div>
+                                 </div>
+                                 <label class="error" for="title" ng-show="error.description.english" ng-bind="error.description.english">This field is required.</label>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane " id="tab2FollowUs">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="form-group form-group-default required">
+                                    <label>Name (AR)</label>
+                                    <input type="text" name="arabicTitle" dir="rtl" class="form-control" ng-model="business.name.arabic" required>
+                                 </div>
+                                 <label class="error" for="arabicTitle" ng-show="error.arabicName" ng-bind="error.arabicName">This field is required.</label>
+                                 <div pg-form-group class="form-group required ">
+                                    <div class="summernote-wrapper">
+                                       <!--.note-editor .note-editable-->
+                                       <div id="summernote" config="summernote_options_arabic" on-focus="focus(evt)" on-blur="blur(evt)" ng-model="business.description.arabic" summernote>Hello Summernote</div>
+                                    </div>
+                                 </div>
+                                 <label class="error" for="title" ng-show="error.description.arabic" ng-bind="business.description.arabic">This field is required.</label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+
+                  <div class="panel">
+                     <ul class="nav nav-tabs nav-tabs-simple" role="tablist">
+                        <li class="active"><a href="#tab2hellowWorld" data-toggle="tab" pg-tab role="tab">Branch</a>
+                        </li>
+                      <!--  <li><a href="#tab2FollowUs" data-toggle="tab" pg-tab role="tab">New Branch</a>
+                        </li>-->
+                     </ul>
+                     <div class="tab-content">
+                        <div class="tab-pane active" id="tab2hellowWorld">
+                           <div class="row column-seperation">
+                              <div class="col-md-2" ng-repeat="(key, item) in business.branches">
+                                 <div class="panel panel-default ng-scope" pg-portlet="">
+                                    <div class="panel-heading">
+                                       <div class="panel-title">Branch {{(key+1)}}</div>
+                                    </div>
+                                    <div class="panel-body">
+
+                                       <p>{{item.location.city}}</p>
+                                       <div class="row column-seperation">
+                                          <div class="col-md-6">
+                                       <button ng-click="editModal(item, key)" class="btn btn-block"><i class="fa fa-pencil"></i></button>
+                                             </div>
+                                          <div class="col-md-6">
+                                       <button class="btn btn-block" ng-click="alertDeletion(item)"><i class="pg-trash"></i></button>
+                                          </div>
+                                          </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-2">
+                                 <div class="panel panel-default bg-danger ng-scope" pg-portlet="" ng-click="showMap()">
+                                    <div class="panel-heading">
+                                       <div  class="text-center panel-title">New Branch</div>
+                                    </div>
+                                    <div class="panel-body">
+
+                                       <h1 class="text-center" style="cursor:pointer">+</h1>
+
+                                    </div>
+                                 </div>
+                              </div>
+                        </div>
+
+
+
+
+                        </div>
+
+                     </div>
+                  </div>
+
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group form-group-default required ">
+                           <label>Logo</label>
+                           <div class="dropzone cover-dropzone" method="post" enctype="multipart/form-data" ng-dropzone dropzone="logo" dropzone-config="dropzoneOneFileConfig">
+                              <input name="file" type="file" />
+                           </div>
+                        </div>
+                        <label class="error" for="title" ng-show="error.logo" ng-bind="error.logo">This field is required.</label>
+                        <br>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group form-group-default required ">
+                           <label>Cover Image</label>
+                           <div class="dropzone cover-dropzone" method="post" enctype="multipart/form-data" ng-dropzone dropzone="cover" dropzone-config="dropzoneOneFileConfig">
+                              <input name="file" type="file" />
+                           </div>
+                        </div>
+                        <label class="error" for="title" ng-show="error.cover" ng-bind="error.cover">This field is required.</label>
+                        <br>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- END PANEL -->
+            <!-- START PANEL -->
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <div class="panel-title"> Photos </div>
+                  <div class="tools">
+                     <a class="collapse" href="javascript:;"></a>
+                     <a class="config" data-toggle="modal" href="#grid-config"></a>
+                     <a class="reload" href="javascript:;"></a>
+                     <a class="remove" href="javascript:;"></a>
+                  </div>
+               </div>
+               <div class="panel-body no-scroll no-padding">
+                  <div class="dropzone" method="post" enctype="multipart/form-data" ng-dropzone dropzone="dropzone" dropzone-config="dropzoneConfig">
+                     <input name="file" type="file" multiple />
+                  </div>
+               </div>
+            </div>
+            <!-- END PANEL -->
+         </div>
+         <div class="col-md-4">
+            <!-- START PANEL -->
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <div class="panel-title">Save & Publish </div>
+                  <div class="tools">
+                     <a class="collapse" href="javascript:;"></a>
+                     <a class="config" data-toggle="modal" href="#grid-config"></a>
+                     <a class="reload" href="javascript:;"></a>
+                     <a class="remove" href="javascript:;"></a>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <div class="input-group" style="width: 100%;">
+                     <div pg-form-group class="form-group form-group-default">
+                        <label>Tags</label>
+                        <input class="tagsinput custom-tag-input" type="text" ng-model="business.tags" ui-jq="tagsinput" />
+                     </div>
+
+                  </div>
+               </div>
+               <div class="panel-heading">
+                  <div class="panel-title">Social Media </div>
+               </div>
+               <div class="panel-body">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-instagram"></i>
+                           </span>
+                           <input type="text" placeholder="Username" class="form-control" ng-model="instagram">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-twitter"></i>
+                           </span>
+                           <input type="text" placeholder="Username" class="form-control" ng-model="twitter">
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-facebook"></i>
+                           </span>
+                           <input type="text" placeholder="Username" class="form-control" ng-model="facebook">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-snapchat-ghost"></i>
+                           </span>
+                           <input type="text" placeholder="Username" class="form-control" ng-model="snapchat">
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-google-plus"></i>
+                           </span>
+                           <input type="text" placeholder="Username" class="form-control" ng-model="googlePlus">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-globe"></i>
+                           </span>
+                           <input type="text" placeholder="Username" class="form-control" ng-model="website">
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <h5>Business
+                           <span class="semi-bold">Options</span>
+                        </h5>
+                        <div class="checkbox check-primary" ng-repeat="(key, item) in businessOptions">
+                           <input type="checkbox" name="businessOptions" value="{{item}}" id="checkboxOption{{key}}"
+                                  ng-checked="selectedOption.indexOf(item) > -1"
+                                  ng-click="toggleOption(item)">
+                           <label for="checkboxOption{{key}}">{{item.option.english}}</label>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <h5>Business
+                           <span class="semi-bold">Categories</span>
+                        </h5>
+                        <div class="checkbox check-primary" ng-repeat="(key, item) in businessCategories">
+                           <input type="checkbox" name="eventCategory" value="{{item}}" id="checkboxCategory{{key}}"
+                                  ng-checked="selectedCategory.indexOf(item) > -1"
+                                  ng-click="toggleCategory(item)">
+                           <label for="checkboxCategory{{key}}">{{item.name.english}}</label>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                     <label for="fname" class="col-sm-4 control-label">Sponsored</label>
+                     <div class="col-sm-8">
+                        <input type="checkbox" class="js-switch" value="APPROVED" ng-model="story.pin" ui-switch="{color: '#10cfbd'}" />
+                     </div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="form-group">
+                     <label for="fname" class="col-sm-4 control-label">Editor Pick</label>
+                     <div class="col-sm-8">
+                        <input type="checkbox" class="js-switch" value="APPROVED" ng-model="story.pin" ui-switch="{color: '#10cfbd'}" />
+                     </div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="form-group">
+                     <label for="fname" class="col-sm-4 control-label">Publish</label>
+                     <div class="col-sm-8">
+                        <input type="checkbox" class="js-switch" ng-model="status" ui-switch="{color: '#10cfbd'}" />
+                     </div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="form-group">
+                     <button class="btn btn-primary btn-cons" ng-click="create(true)" >Save</button>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- END PANEL -->
+   </div>
+</form>
+</div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+   <div class="modal-dialog">
+      <form name="newBranch">
+      <div class="modal-content-wrapper">
+         <div class="modal-content">
+            <div class="modal-header clearfix text-left">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+               </button>
+               <h5>New Branch</h5>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="row">
+                  <div class="col-md-6">
+                     <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-phone"></i>
+                           </span>
+                        <input type="text" ng-pattern="phoneRE" name="branchPhone" ng-model="branch.phoneNumber" placeholder="Enter a phone number" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <p class="error m-t-5  m-b-0" ng-show="newBranch.branchPhone.$error.pattern">
+                        invalid phone number!
+                    </p>
+                  </div>
+               </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="pg pg-mail"></i>
+                           </span>
+                           <input type="text" ng-pattern="emailRE" name="branchEmail" ng-model="branch.email" placeholder="Enter an email" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <p class="error m-t-5  m-b-0" ng-show="newBranch.branchEmail.$error.pattern">
+                           invalid email!
+                        </p>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-clock-o"></i>
+                           </span>
+                           <input type="text" ng-model="branch.openingHours.english" placeholder="Opening Hours (EN)" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-clock-o"></i>
+                           </span>
+                           <input type="text" ng-model="branch.openingHours.arabic" placeholder="Opening Hours (AR)" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="pg pg-map"></i>
+                           </span>
+                           <input type="text" ng-model="branch.address.english" placeholder="Address (EN)" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="pg pg-map"></i>
+                           </span>
+                           <input type="text" ng-model="branch.address.arabic" placeholder="Address (AR)" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                     <div class="col-md-8">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-location-arrow"></i>
+                           </span>
+                           <input places-auto-complete type="text" types="{{autocomplete.type.type}}" on-place-changed="placeChanged()" ng-model="location.address" placeholder="Enter a location" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="input-group transparent"> <span class="input-group-addon">
+                     <i class="fa fa-building"></i>
+                     </span>
+                           <select class="cs-select cs-skin-slide" cs-select ng-init="autocomplete.type = autocomplete.types[0]" ng-model="autocomplete.type" ng-options="x.name for x in autocomplete.types"></select>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <ng-map id="new-branch-map" zoom="11" center="[26.30277403477249, 50.20979642324221]" style="height: 150px;"></ng-map>
+                  <br>
+
+                  <div class="row">
+
+                     <div class="col-md-4">
+                        <div class="input-group transparent">
+                           <input type="text" placeholder="City" class="form-control"  ng-model="location.city">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="input-group transparent">
+                           <input type="text" placeholder="Latitude" class="form-control" id="location.lat" ng-model="location.latitude">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="input-group transparent">
+
+                           <input type="text" placeholder="Longitude " class="form-control" id="location.lng" ng-model="location.longitude">
+                        </div>
+                     </div>
+                  </div>
+
+               </form>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-primary btn-cons  pull-left inline" ng-click="addBranch()">Add</button>
+               <button type="button" class="btn btn-default btn-cons no-margin pull-left inline" data-dismiss="modal">Cancel</button>
+            </div>
+         </div>
+      </div>
+      </form>
+      <!-- /.modal-content -->
+</div>
+   </div>
+<!-- END CONTAINER FLUID -->
+
+
+   </div>
+
+
+
+
+<div class="modal fade" id="editModals" role="dialog">
+   <div class="modal-dialog">
+      <form name="branch">
+      <div class="modal-content-wrapper">
+         <div class="modal-content">
+            <div class="modal-header clearfix text-left">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+               </button>
+               <h5>edit Branch</h5>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-phone"></i>
+                           </span>
+                           <input type="text" ng-pattern="phone" name="phone" ng-model="branch.phoneNumber" placeholder="Enter a phone number" class="form-control">
+                        </div>
+                        <span class="error" ng-show="branch.phone.$error.pattern">
+            invalid email!
+        </span>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="pg pg-mail"></i>
+                           </span>
+                           <input type="text"  ng-model="branch.email" placeholder="Enter an email" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-clock-o"></i>
+                           </span>
+                           <input type="text" ng-model="branch.openingHours.english" placeholder="Opening Hours (EN)" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-clock-o"></i>
+                           </span>
+                           <input type="text" ng-model="branch.openingHours.arabic" placeholder="Opening Hours (AR)" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="pg pg-map"></i>
+                           </span>
+                           <input type="text" ng-model="branch.address.english" placeholder="Address (EN)" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="pg pg-map"></i>
+                           </span>
+                           <input type="text" ng-model="branch.address.arabic" placeholder="Address (AR)" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                     <div class="col-md-8">
+                        <div class="input-group transparent">
+                           <span class="input-group-addon">
+                           <i class="fa fa-location-arrow"></i>
+                           </span>
+                           <input places-auto-complete type="text" types="{{autocomplete.type.type}}" on-place-changed="placeChanged()" ng-model="location.address" placeholder="Enter a location" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="input-group transparent"> <span class="input-group-addon">
+                     <i class="fa fa-building"></i>
+                     </span>
+                           <select class="cs-select cs-skin-slide" cs-select ng-init="autocomplete.type = autocomplete.types[0]" ng-model="autocomplete.type" ng-options="x.name for x in autocomplete.types"></select>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <ng-map id="pop-map" zoom="11" center="[26.30277403477249, 50.20979642324221]" style="height: 150px;"></ng-map>
+                  <br>
+
+                  <div class="row">
+
+                     <div class="col-md-4">
+                        <div class="input-group transparent">
+                           <input type="text" placeholder="City" class="form-control"  ng-model="location.city">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="input-group transparent">
+                           <input type="text" placeholder="Latitude" class="form-control" id="location.lat"branch.location.citybranch.location.longitude ng-model="location.latitude">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="input-group transparent">
+
+                           <input type="text" placeholder="Longitude " class="form-control" id="location.lng" ng-model="location.longitude">
+                        </div>
+                     </div>
+                  </div>
+
+               </form>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-primary btn-cons  pull-left inline" ng-click="editBranch(item,key)">Edit</button>
+               <button type="button" class="btn btn-default btn-cons no-margin pull-left inline" data-dismiss="modal">Cancel</button>
+            </div>
+         </div>
+         </div>
+      </form>
+      </div>
+   </div>
+<div class="modal fade" id="deleteModal" role="dialog">
+   <div class="modal-dialog modal-sm">
+      <div class="modal-content-wrapper">
+         <div class="modal-content">
+            <div class="modal-header clearfix text-left">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+               </button>
+               <h5>Delete Warning</h5>
+            </div>
+            <div class="modal-body">
+               <p class="no-margin">This will delete the item permanently.<br> Are you sure delete this item?</p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-primary btn-cons  pull-left inline" ng-click="delete()">Yes</button>
+               <button type="button" class="btn btn-default btn-cons no-margin pull-left inline" data-dismiss="modal">Cancel</button>
+            </div>
+         </div>
+      </div>
+      <!-- /.modal-content -->
+   </div>
+</div>
+
+

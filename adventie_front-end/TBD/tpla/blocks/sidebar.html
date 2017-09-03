@@ -1,0 +1,127 @@
+    <!-- BEGIN SIDEBPANEL-->
+    <nav class="page-sidebar" data-pages="sidebar" pg-sidebar>
+      <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
+      <div class="sidebar-overlay-slide from-top" id="appMenu">
+        <div class="row">
+          <div class="col-xs-6 no-padding">
+            <a href="" class="p-l-40"><img src="assets/img/demo/social_app.svg" alt="socail">
+            </a>
+          </div>
+          <div class="col-xs-6 no-padding">
+            <a href="" class="p-l-10"><img src="assets/img/demo/email_app.svg" alt="socail">
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 m-t-20 no-padding">
+            <a href="" class="p-l-40"><img src="assets/img/demo/calendar_app.svg" alt="socail">
+            </a>
+          </div>
+          <div class="col-xs-6 m-t-20 no-padding">
+            <a href="" class="p-l-10"><img src="assets/img/demo/add_more.svg" alt="socail">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
+      <!-- BEGIN SIDEBAR MENU HEADER-->
+      <div class="sidebar-header">
+        <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" ui-jq="unveil" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
+        <div class="sidebar-header-controls">
+          <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
+          </button>
+          <button type="button" class="btn btn-link visible-lg-inline" data-toggle-pin="sidebar"><i class="fa fs-12"></i>
+          </button>
+        </div>
+      </div>
+      <!-- END SIDEBAR MENU HEADER-->
+      <!-- START SIDEBAR MENU -->
+      <div class="sidebar-menu">
+        <!-- BEGIN SIDEBAR MENU ITEMS-->
+        <ul class="menu-items">
+          <li class="m-t-30 open" ui-sref-active="active">
+            <a ui-sref="nav.dashboard" class="detailed">
+              <span class="title">Dashboard</span>
+            </a>
+            <span class="icon-thumbnail" ng-class="{'bg-success': isActive('/dashboard')}"><i class="pg-home"></i></span>
+          </li>
+          <li ng-class="{'active open': isActive('/articles/published' || '/articles/pending')}">
+            <a href="javascript:;">
+              <span class="title">Stories</span>
+              <span class="arrow" ng-class="{'active open': isActive('/articles/published' || '/articles/pending')}"></span>
+            </a>
+            <span class="icon-thumbnail" ng-class="{'bg-success': isActive('/articles/published' || '/articles/pending')}"><i class="pg-form"></i></span>
+            <ul class="sub-menu">
+              <li ui-sref-active="active">
+                <a ui-sref="nav.articlePublished">Published Stories</a>
+                <span class="icon-thumbnail" ng-class="{'bg-complete': isActive('/articles/published')}">PS</span>
+              </li>
+              <li ui-sref-active="active">
+                <a ui-sref="nav.articlePending">Pending Stories</a>
+                <span class="icon-thumbnail" ng-class="{'bg-complete': isActive('/articles/pending')}">PS</span>
+              </li>
+              <li ui-sref-active="active">
+                <a ui-sref="nav.articleNew">New Story</a>
+                <span class="icon-thumbnail" ng-class="{'bg-complete': isActive('/articles/new')}">NS</span>
+              </li>
+            </ul>
+          </li>
+          <li ng-class="{'active open': isActive('/events/published' || '/events/pending')}">
+            <a href="javascript:;">
+              <span class="title">Events</span>
+              <span class="arrow" ng-class="{'active open': isActive('/events/published' || '/events/pending')}"></span>
+            </a>
+            <span class="icon-thumbnail" ng-class="{'bg-success': isActive('/events/published' || '/events/pending')}"><i class="pg-calender"></i></span>
+            <ul class="sub-menu">
+              <li ui-sref-active="active">
+                <a ui-sref="app.calendar">Calendar</a>
+                <span class="icon-thumbnail" ng-class="{'bg-complete': isActive('/events/calendar')}">C</span>
+              </li>
+              <li ui-sref-active="active">
+                <a ui-sref="nav.eventsList">Published Events</a>
+                <span class="icon-thumbnail" ng-class="{'bg-complete': isActive('/events/published')}">PS</span>
+              </li>
+              <li ui-sref-active="active">
+                <a ui-sref="nav.eventsNew">New Events</a>
+                <span class="icon-thumbnail" ng-class="{'bg-complete': isActive('/events/new')}">NE</span>
+              </li>
+              <li ui-sref-active="active">
+                <a ui-sref="nav.eventsCategories">Events Categories</a>
+                <span class="icon-thumbnail" ng-class="{'bg-complete': isActive('/event/pending')}">PS</span>
+              </li>
+              <li ui-sref-active="active">
+                <a ui-sref="nav.eventsOptions">Events Options</a>
+                <span class="icon-thumbnail" ng-class="{'bg-complete': isActive('/event/options')}">EO</span>
+              </li>
+            </ul>
+
+          </li>
+          <li class="" ui-sref-active="active">
+            <a ui-sref="nav.email.inbox" class="detailed">
+              <span class="title">Businesses</span>
+              <span class="details">234 New Emails</span>
+            </a>
+            <span class="icon-thumbnail "><i class="fa fa-building"></i></span>
+          </li>
+          <li class="" ui-sref-active="active">
+            <a ui-sref="nav.social"><span class="title">Users</span></a>
+            <span class="icon-thumbnail "><i class="fa fa-users"></i></span>
+          </li>
+          <li class="" ui-sref-active="active">
+            <a ui-sref="nav.social"><span class="title">Social</span></a>
+            <span class="icon-thumbnail "><i class="pg-social"></i></span>
+          </li>
+          <li class="" ui-sref-active="active">
+            <a ui-sref="nav.social"><span class="title">Social</span></a>
+            <span class="icon-thumbnail "><i class="pg-settings_small"></i></span>
+          </li>
+
+
+
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <!-- END SIDEBAR MENU -->
+    </nav>
+    <!-- END SIDEBAR -->
+    <!-- END SIDEBPANEL-->

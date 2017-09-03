@@ -1,0 +1,687 @@
+<!--  START CONTAINER FLUID -->
+<div class="container-fluid padding-25 sm-padding-10 sm-gutter">
+    <!-- START ROW -->
+    <div class="row">
+        <div class="col-md-6 col-lg-5 col-xlg-6 m-b-10">
+            <div class="row">
+                <div class="col-md-12">
+                    <nvd3 options="options" data="data"></nvd3>
+                    <!-- START WIDGET -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xlg-2 ">
+            <div class="row">
+                <div class="col-md-12 m-b-10">
+                    <!-- START WIDGET -->
+                    <div class="widget-9 panel no-border bg-success no-margin widget-loader-bar" pg-portlet progress="bar">
+                        <div class="container-xs-height full-height">
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-top">
+                                    <div class="panel-heading  top-left top-right">
+                                        <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_2.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-top">
+                                    <div class="p-l-20 p-t-15">
+                                        <h3 class="no-margin p-b-5 text-white">{{wain_widget_2.count}}</h3>
+                                        <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                        </a>
+                                        <span class="small hint-text">{{wain_widget_2.count*100/wain_widget_2.total | percent}}% from last total</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-bottom">
+                                    <div class="progress progress-small m-b-20">
+                                        <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                        <div class="progress-bar progress-bar-white" style="width:{{wain_widget_2.count*100/wain_widget_2.total}}%"></div>
+                                        <!-- END BOOTSTRAP PROGRESS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END WIDGET -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 m-b-10">
+                    <!-- START WIDGET -->
+                    <div class="widget-9 panel no-border bg-primary no-margin widget-loader-bar" pg-portlet progress="bar">
+                        <div class="container-xs-height full-height">
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-top">
+                                    <div class="panel-heading  top-left top-right">
+                                        <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_3.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-top">
+                                    <div class="p-l-20 p-t-15">
+                                        <h3 class="no-margin p-b-5 text-white">{{wain_widget_3.count}}</h3>
+                                        <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                        </a>
+                                        <span class="small hint-text">{{wain_widget_3.count*100/wain_widget_3.total}}% from last total</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-bottom">
+                                    <div class="progress progress-small m-b-20">
+                                        <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                        <div class="progress-bar progress-bar-white" style="width:{{wain_widget_3.count*100/wain_widget_3.total}}%"></div>
+                                        <!-- END BOOTSTRAP PROGRESS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END WIDGET -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 m-b-10">
+                    <!-- START WIDGET -->
+                    <div class="widget-9 panel no-border bg-warning no-margin widget-loader-bar" pg-portlet progress="bar">
+                        <div class="container-xs-height full-height">
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-top">
+                                    <div class="panel-heading  top-left top-right">
+                                        <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_1.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-top">
+                                    <div class="p-l-20 p-t-15">
+                                        <h3 class="no-margin p-b-5 text-white">{{wain_widget_1.count}}</h3>
+                                        <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                        </a>
+                                        <span class="small hint-text">{{wain_widget_1.count*100/wain_widget_1.total}}% from last total</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-bottom">
+                                    <div class="progress progress-small m-b-20">
+                                        <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                        <div class="progress-bar progress-bar-white" style="width:{{wain_widget_1.count*100/wain_widget_1.total}}%"></div>
+                                        <!-- END BOOTSTRAP PROGRESS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END WIDGET -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 hidden-lg visible-md visible-xlg col-xlg-4 m-b-10">
+            <!-- START WIDGET -->
+            <div class="widget-15 panel panel-condensed  no-margin no-border widget-loader-circle" pg-portlet progress="circle" on-refresh="refreshTest('.widget-15')">
+                <div class="panel-heading">
+                    <div class="panel-controls">
+                        <ul>
+                            <li><a ng-click="collapse()" class="portlet-collapse" data-toggle="collapse"><i class="portlet-icon portlet-icon-collapse"></i></a>
+                            </li>
+                            <li><a ng-click="refresh()" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body no-padding">
+                    <ul class="nav nav-tabs nav-tabs-simple">
+                        <li class="active">
+                            <a class="p-t-5">
+                                Users<br>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-l-20 p-r-20">
+                        <div class="tab-pane no-padding active" id="widget-15-tab-1">
+                            <div class="full-width">
+                                <div class="full-width">
+                                    <rickshaw rickshaw-options="widget_15_2_options" rickshaw-features="widget_15_2_features" rickshaw-series="widget_15_2_series" class="widget-15-chart rickshaw-chart full-height">
+                                    </rickshaw>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane no-padding" id="widget-15-tab-2">
+                        </div>
+                        <div class="tab-pane" id="widget-15-tab-3">
+                        </div>
+                    </div>
+                    <div class="p-t-20 p-l-20 p-r-20 p-b-30">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <p class="fs-16 text-black">Apple’s Motivation - Innovation
+                                    <br>distinguishes between A leader and a follower.
+                                </p>
+                                <p class="small hint-text">VIA Apple Store (Consumer and Education Individuals)
+                                    <br>(800) MY-APPLE (800-692-7753)
+                                </p>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <p class="font-montserrat bold text-success m-r-20 fs-16">+0.94</p>
+                                <p class="font-montserrat bold text-danger m-r-20 fs-16">-0.63</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END WIDGET -->
+        </div>
+
+    </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                Businesses
+            </div>
+            <div class="col-md-3">
+                <!-- START WIDGET -->
+                <div class="widget-9 panel no-border bg-success no-margin widget-loader-bar" pg-portlet progress="bar">
+                    <div class="container-xs-height full-height">
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="panel-heading  top-left top-right">
+                                    <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_4.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="p-l-20 p-t-15">
+                                    <h3 class="no-margin p-b-5 text-white">{{wain_widget_4.count}}</h3>
+                                    <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                    </a>
+                                    <span class="small hint-text">{{wain_widget_4.count*100/wain_widget_4.total | percent}}% from last total</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-bottom">
+                                <div class="progress progress-small m-b-20">
+                                    <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                    <div class="progress-bar progress-bar-white" style="width:{{wain_widget_4.count*100/wain_widget_4.total}}%"></div>
+                                    <!-- END BOOTSTRAP PROGRESS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </div>
+            <div class="col-md-3">
+                <!-- START WIDGET -->
+                <div class="widget-9 panel no-border bg-success no-margin widget-loader-bar" pg-portlet progress="bar">
+                    <div class="container-xs-height full-height">
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="panel-heading  top-left top-right">
+                                    <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_5.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="p-l-20 p-t-15">
+                                    <h3 class="no-margin p-b-5 text-white">{{wain_widget_5.count}}</h3>
+                                    <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                    </a>
+                                    <span class="small hint-text">{{wain_widget_5.count*100/wain_widget_5.total | percent}}% from last total</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-bottom">
+                                <div class="progress progress-small m-b-20">
+                                    <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                    <div class="progress-bar progress-bar-white" style="width:{{wain_widget_5.count*100/wain_widget_5.total}}%"></div>
+                                    <!-- END BOOTSTRAP PROGRESS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </div>
+            <div class="col-md-3">
+                <!-- START WIDGET -->
+                <div class="widget-9 panel no-border bg-success no-margin widget-loader-bar" pg-portlet progress="bar">
+                    <div class="container-xs-height full-height">
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="panel-heading  top-left top-right">
+                                    <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_6.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="p-l-20 p-t-15">
+                                    <h3 class="no-margin p-b-5 text-white">{{wain_widget_6.count}}</h3>
+                                    <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                    </a>
+                                    <span class="small hint-text">{{wain_widget_6.count*100/wain_widget_6.total | percent}}% from last total</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-bottom">
+                                <div class="progress progress-small m-b-20">
+                                    <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                    <div class="progress-bar progress-bar-white" style="width:{{wain_widget_6.count*100/wain_widget_6.total}}%"></div>
+                                    <!-- END BOOTSTRAP PROGRESS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </div>
+        </div>
+<br>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <!-- START WIDGET -->
+                Events
+                <!-- END WIDGET -->
+            </div>
+            <div class="col-md-3">
+                <!-- START WIDGET -->
+                <div class="widget-9 panel no-border bg-primary no-margin widget-loader-bar" pg-portlet progress="bar">
+                    <div class="container-xs-height full-height">
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="panel-heading  top-left top-right">
+                                    <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_7.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="p-l-20 p-t-15">
+                                    <h3 class="no-margin p-b-5 text-white">{{wain_widget_7.count}}</h3>
+                                    <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                    </a>
+                                    <span class="small hint-text">{{wain_widget_7.count*100/wain_widget_7.total}}% from last total</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-bottom">
+                                <div class="progress progress-small m-b-20">
+                                    <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                    <div class="progress-bar progress-bar-white" style="width:{{wain_widget_7.count*100/wain_widget_7.total}}%"></div>
+                                    <!-- END BOOTSTRAP PROGRESS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </div>
+            <div class="col-md-3">
+                <!-- START WIDGET -->
+                <div class="widget-9 panel no-border bg-primary no-margin widget-loader-bar" pg-portlet progress="bar">
+                    <div class="container-xs-height full-height">
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="panel-heading  top-left top-right">
+                                    <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_8.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="p-l-20 p-t-15">
+                                    <h3 class="no-margin p-b-5 text-white">{{wain_widget_8.count}}</h3>
+                                    <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                    </a>
+                                    <span class="small hint-text">{{wain_widget_8.count*100/wain_widget_8.total}}% from last total</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-bottom">
+                                <div class="progress progress-small m-b-20">
+                                    <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                    <div class="progress-bar progress-bar-white" style="width:{{wain_widget_8.count*100/wain_widget_8.total}}%"></div>
+                                    <!-- END BOOTSTRAP PROGRESS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </div>
+            <div class="col-md-3">
+                <!-- START WIDGET -->
+                <div class="widget-9 panel no-border bg-primary no-margin widget-loader-bar" pg-portlet progress="bar">
+                    <div class="container-xs-height full-height">
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="panel-heading  top-left top-right">
+                                    <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_9.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-top">
+                                <div class="p-l-20 p-t-15">
+                                    <h3 class="no-margin p-b-5 text-white">{{wain_widget_9.count}}</h3>
+                                    <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                    </a>
+                                    <span class="small hint-text">{{wain_widget_9.count*100/wain_widget_9.total}}% from last total</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-xs-height">
+                            <div class="col-xs-height col-bottom">
+                                <div class="progress progress-small m-b-20">
+                                    <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                    <div class="progress-bar progress-bar-white" style="width:{{wain_widget_9.count*100/wain_widget_9.total}}%"></div>
+                                    <!-- END BOOTSTRAP PROGRESS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </div>
+
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <!-- START WIDGET -->
+            Stories
+            <!-- END WIDGET -->
+        </div>
+        <div class="col-md-3">
+            <!-- START WIDGET -->
+            <div class="widget-9 panel no-border bg-warning no-margin widget-loader-bar" pg-portlet progress="bar">
+                <div class="container-xs-height full-height">
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="panel-heading  top-left top-right">
+                                <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_10.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="p-l-20 p-t-15">
+                                <h3 class="no-margin p-b-5 text-white">{{wain_widget_10.count}}</h3>
+                                <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                </a>
+                                <span class="small hint-text">{{wain_widget_10.count*100/wain_widget_10.total}}% from last total</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-bottom">
+                            <div class="progress progress-small m-b-20">
+                                <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                <div class="progress-bar progress-bar-white" style="width:{{wain_widget_10.count*100/wain_widget_10.total}}%"></div>
+                                <!-- END BOOTSTRAP PROGRESS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END WIDGET -->
+        </div>
+        <div class="col-md-3">
+            <!-- START WIDGET -->
+            <div class="widget-9 panel no-border bg-warning no-margin widget-loader-bar" pg-portlet progress="bar">
+                <div class="container-xs-height full-height">
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="panel-heading  top-left top-right">
+                                <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_11.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="p-l-20 p-t-15">
+                                <h3 class="no-margin p-b-5 text-white">{{wain_widget_11.count}}</h3>
+                                <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                </a>
+                                <span class="small hint-text">{{wain_widget_11.count*100/wain_widget_11.total}}% from last total</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-bottom">
+                            <div class="progress progress-small m-b-20">
+                                <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                <div class="progress-bar progress-bar-white" style="width:{{wain_widget_11.count*100/wain_widget_11.total}}%"></div>
+                                <!-- END BOOTSTRAP PROGRESS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END WIDGET -->
+        </div>
+        <div class="col-md-3">
+            <!-- START WIDGET -->
+            <div class="widget-9 panel no-border bg-warning no-margin widget-loader-bar" pg-portlet progress="bar">
+                <div class="container-xs-height full-height">
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="panel-heading  top-left top-right">
+                                <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_12.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="p-l-20 p-t-15">
+                                <h3 class="no-margin p-b-5 text-white">{{wain_widget_12.count}}</h3>
+                                <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                </a>
+                                <span class="small hint-text">{{wain_widget_12.count*100/wain_widget_12.total}}% from last total</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-bottom">
+                            <div class="progress progress-small m-b-20">
+                                <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                <div class="progress-bar progress-bar-white" style="width:{{wain_widget_12.count*100/wain_widget_12.total}}%"></div>
+                                <!-- END BOOTSTRAP PROGRESS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END WIDGET -->
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <!-- START WIDGET -->
+            Users
+            <!-- END WIDGET -->
+        </div>
+        <div class="col-md-3">
+            <!-- START WIDGET -->
+            <div class="widget-9 panel no-border bg-warning no-margin widget-loader-bar" pg-portlet progress="bar">
+                <div class="container-xs-height full-height">
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="panel-heading  top-left top-right">
+                                <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_13.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="p-l-20 p-t-15">
+                                <h3 class="no-margin p-b-5 text-white">{{wain_widget_13.count}}</h3>
+                                <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                </a>
+                                <span class="small hint-text">{{wain_widget_13.count*100/wain_widget_13.total}}% from last total</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-bottom">
+                            <div class="progress progress-small m-b-20">
+                                <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                <div class="progress-bar progress-bar-white" style="width:{{wain_widget_13.count*100/wain_widget_13.total}}%"></div>
+                                <!-- END BOOTSTRAP PROGRESS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END WIDGET -->
+        </div>
+        <div class="col-md-3">
+            <!-- START WIDGET -->
+            <div class="widget-9 panel no-border bg-warning no-margin widget-loader-bar" pg-portlet progress="bar">
+                <div class="container-xs-height full-height">
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="panel-heading  top-left top-right">
+                                <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_14.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="p-l-20 p-t-15">
+                                <h3 class="no-margin p-b-5 text-white">{{wain_widget_14.count}}</h3>
+                                <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                </a>
+                                <span class="small hint-text">{{wain_widget_14.count*100/wain_widget_14.total}}% from last total</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-bottom">
+                            <div class="progress progress-small m-b-20">
+                                <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                <div class="progress-bar progress-bar-white" style="width:{{wain_widget_14.count*100/wain_widget_14.total}}%"></div>
+                                <!-- END BOOTSTRAP PROGRESS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END WIDGET -->
+        </div>
+        <div class="col-md-3">
+            <!-- START WIDGET -->
+            <div class="widget-9 panel no-border bg-warning no-margin widget-loader-bar" pg-portlet progress="bar">
+                <div class="container-xs-height full-height">
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="panel-heading  top-left top-right">
+                                <div class="panel-title text-black">
+                                            <span class="font-montserrat fs-11 all-caps">{{wain_widget_15.title}}<i class="fa fa-chevron-right"></i>
+                                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-top">
+                            <div class="p-l-20 p-t-15">
+                                <h3 class="no-margin p-b-5 text-white">{{wain_widget_15.count}}</h3>
+                                <a class="btn-circle-arrow text-white"><i class="pg-arrow_minimize"></i>
+                                </a>
+                                <span class="small hint-text">{{wain_widget_15.count*100/wain_widget_15.total}}% from last total</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-xs-height">
+                        <div class="col-xs-height col-bottom">
+                            <div class="progress progress-small m-b-20">
+                                <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                <div class="progress-bar progress-bar-white" style="width:{{wain_widget_15.count*100/wain_widget_15.total}}%"></div>
+                                <!-- END BOOTSTRAP PROGRESS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END WIDGET -->
+        </div>
+
+    </div>
+
+</div>
+<!-- END CONTAINER FLUID -->
